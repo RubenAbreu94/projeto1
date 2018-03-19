@@ -1,16 +1,17 @@
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
 
-public class testCaseOrtografia1DESCONTINUADO {
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+public class testCaseLogin11 {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -28,30 +29,32 @@ public class testCaseOrtografia1DESCONTINUADO {
         System.setProperty("phantomjs.binary.path",
                 "drivers\\phantomjs.exe");
         driver = new ChromeDriver();
-        baseUrl = "http://159.65.29.212";
+        baseUrl = "http://159.65.29.212/login";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @Test
-    public void testTestCaseOrtografia1() throws Exception {
-        driver.get("http://159.65.29.212//login");
-        driver.findElement(By.id("email")).click();
+    public void testTestCaseLogin11() throws Exception {
+        driver.get("http://159.65.29.212/");
+        driver.findElement(By.linkText("TeenPower")).click();
+        driver.findElement(By.linkText("TeenPower")).click();
+        /*driver.findElement(By.cssSelector("button.navbar-toggler")).click();*/
+        /*driver.findElement(By.cssSelector("button.navbar-toggler")).click();*/
+        driver.findElement(By.linkText("Login")).click();
+        driver.findElement(By.linkText("Login")).click();
         driver.findElement(By.id("email")).clear();
-        driver.findElement(By.id("email")).sendKeys("administrador@mail.com");
-        driver.findElement(By.id("password")).click();
+        driver.findElement(By.id("email")).sendKeys("professor@mail.com");
+        driver.findElement(By.id("email")).clear();
+        driver.findElement(By.id("email")).sendKeys("professor@mail.com");
         driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).sendKeys("admin_tp18_a");
+        driver.findElement(By.id("password")).sendKeys("password_tp18_t");
+        driver.findElement(By.id("password")).clear();
+        driver.findElement(By.id("password")).sendKeys("password_tp18_t");
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
+        /*driver.findElement(By.cssSelector("button.btn.btn-primary")).click();*/
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Total de Utilizadores"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
-        // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
-        driver.findElement(By.cssSelector("button.navbar-toggler")).click();
-        try {
-            assertEquals("Administrador", driver.findElement(By.linkText("Administrator")).getText());
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
