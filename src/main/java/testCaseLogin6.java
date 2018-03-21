@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-public class testCaseLogin11 {
+public class testCaseLogin6 {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -34,19 +34,19 @@ public class testCaseLogin11 {
     }
 
     @Test
-    public void testTestCaseLogin11() throws Exception {
+    public void testTestCaseLogin6() throws Exception {
         driver.get("http://159.65.29.212/");
         driver.findElement(By.linkText("TeenPower")).click();
-        /*driver.findElement(By.cssSelector("button.navbar-toggler")).click();*/
+       /* driver.findElement(By.cssSelector("button.navbar-toggler")).click();*/
         driver.findElement(By.linkText("Login")).click();
         driver.findElement(By.id("email")).clear();
         driver.findElement(By.id("email")).sendKeys("professor@mail.com");
         driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).sendKeys("password_tp18_t");
+        driver.findElement(By.id("password")).sendKeys("12345");
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Não existem registos com as credenciais fornecidas."));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

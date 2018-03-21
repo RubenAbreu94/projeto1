@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-public class testCaseLogin11 {
+public class testCaseLogout3 {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -34,8 +34,9 @@ public class testCaseLogin11 {
     }
 
     @Test
-    public void testTestCaseLogin11() throws Exception {
+    public void testTestCaseLogout3() throws Exception {
         driver.get("http://159.65.29.212/");
+        driver.findElement(By.linkText("TeenPower")).click();
         driver.findElement(By.linkText("TeenPower")).click();
         /*driver.findElement(By.cssSelector("button.navbar-toggler")).click();*/
         driver.findElement(By.linkText("Login")).click();
@@ -47,6 +48,17 @@ public class testCaseLogin11 {
         // Warning: verifyTextPresent may require manual changes
         try {
             assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+        // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
+        /*driver.findElement(By.cssSelector("button.navbar-toggler")).click();*/
+        /*driver.findElement(By.cssSelector("button.navbar-toggler")).click();*/
+        driver.findElement(By.linkText("Professor")).click();
+        driver.findElement(By.linkText("Logout")).click();
+        // Warning: verifyTextPresent may require manual changes
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Página Inicial"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
