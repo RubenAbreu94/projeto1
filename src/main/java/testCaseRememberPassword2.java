@@ -38,7 +38,7 @@ public class testCaseRememberPassword2 extends junit.framework.TestCase{
     driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
     // Warning: verifyTextPresent may require manual changes
     try {
-      assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("The email field is required."));
+      assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("O campo de email é obrigatório."));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
