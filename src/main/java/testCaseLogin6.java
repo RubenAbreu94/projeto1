@@ -36,9 +36,6 @@ public class testCaseLogin6 {
     @Test
     public void testTestCaseLogin6() throws Exception {
         driver.get("http://159.65.29.212/");
-        driver.manage().window().setPosition(new Point(0,0));
-        driver.manage().window().setSize(new Dimension(400,768));
-        driver.findElement(By.cssSelector("button.navbar-toggler")).click();
         driver.findElement(By.linkText("Login")).click();
         driver.findElement(By.id("email")).clear();
         driver.findElement(By.id("email")).sendKeys("professor@mail.com");
