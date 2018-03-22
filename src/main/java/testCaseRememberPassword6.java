@@ -8,10 +8,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-public class testCaseLogin10 {
+public class testCaseRememberPassword6 extends junit.framework.TestCase{
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -29,23 +26,19 @@ public class testCaseLogin10 {
         System.setProperty("phantomjs.binary.path",
                 "drivers\\phantomjs.exe");
         driver = new ChromeDriver();
-        baseUrl = "http://159.65.29.212/login";
+        baseUrl = "http://159.65.29.212";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @Test
-    public void testTestCaseLogin10() throws Exception {
-        driver.get("http://159.65.29.212/");
+    public void testTestCaseRememerPassword6() throws Exception {
+        driver.get("http://159.65.29.212/password/reset");
+        // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
+        //driver.findElement(By.cssSelector("button.navbar-toggler")).click();
         driver.findElement(By.linkText("TeenPower")).click();
-        /*driver.findElement(By.cssSelector("button.navbar-toggler")).click();*/
-        driver.findElement(By.linkText("Login")).click();
-        driver.findElement(By.id("email")).clear();
-        driver.findElement(By.id("email")).sendKeys("professor@mail.com");
-        driver.findElement(By.id("password")).clear();
-        driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.id("password")).getAttribute("validationMessage").contains("Preencha este campo"));
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Página Inicial"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

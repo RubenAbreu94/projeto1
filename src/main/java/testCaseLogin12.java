@@ -34,7 +34,7 @@ public class testCaseLogin12 {
     }
 
     @Test
-    public void testTestCaseLogin11() throws Exception {
+    public void testTestCaseLogin12() throws Exception {
         driver.get("http://159.65.29.212/");
         driver.findElement(By.linkText("TeenPower")).click();
         /*driver.findElement(By.cssSelector("button.navbar-toggler")).click();*/

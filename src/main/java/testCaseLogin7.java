@@ -35,10 +35,8 @@ public class testCaseLogin7 {
 
     @Test
     public void testTestCaseLogin7() throws Exception {
-        driver.get("http://159.65.29.212/");
+        driver.get("http://159.65.29.212/login");
         /*driver.findElement(By.cssSelector("button.navbar-toggler")).click();*/
-        /*driver.findElement(By.cssSelector("button.navbar-toggler")).click();*/
-        driver.findElement(By.linkText("Login")).click();
         driver.findElement(By.id("email")).clear();
         driver.findElement(By.id("email")).sendKeys("professor@mail.com");
         driver.findElement(By.id("password")).clear();
