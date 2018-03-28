@@ -124,6 +124,30 @@ public class testSuiteProfissionalSaude extends junit.framework.TestCase{
         }
     }
 
+    @Test
+    public void testTestCaseProfissionalSaude8() throws Exception {
+        driver.get("http://159.65.29.212/login");
+        driver.findElement(By.id("email")).clear();
+        driver.findElement(By.id("email")).sendKeys("profissionaldesaude@mail.com");
+        driver.findElement(By.id("password")).clear();
+        driver.findElement(By.id("password")).sendKeys("password_tp18_p");
+        driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
+        // Warning: verifyTextPresent may require manual changes
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Funcionalidades"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+        driver.findElement(By.linkText("Fórum")).click();
+        // Warning: verifyTextPresent may require manual changes
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Nova Categoria"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+    }
+
+
     @After
     public void tearDown() throws Exception {
         driver.quit();
