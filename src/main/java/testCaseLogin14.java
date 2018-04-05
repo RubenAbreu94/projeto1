@@ -32,7 +32,7 @@ public class testCaseLogin14 extends junit.framework.TestCase{
 
   @Test
   public void testTestCaseLogin14() throws Exception {
-    driver.manage().window().setSize(new Dimension(400,768));
+    driver.manage().window().setSize(new Dimension(1024,768)); 
     driver.get("http://159.65.29.212/");
     driver.findElement(By.cssSelector("button.navbar-toggler")).click();
     driver.findElement(By.linkText("Login")).click();
