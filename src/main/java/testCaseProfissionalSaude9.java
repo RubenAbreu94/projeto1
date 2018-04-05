@@ -54,10 +54,14 @@ public class testCaseProfissionalSaude9 {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-        driver.findElement(By.id("new_category_btn")).click();
+        driver.findElement(By.cssSelector("#new_category_btn")).click();
+        Thread.sleep(3000);
         // Warning: verifyTextPresent may require manual changes
+        
+        String height_cssValue =  driver.findElement(By.cssSelector("#new_category")).getCssValue("height");
+        System.out.println(height_cssValue);
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Criar Categoria"));
+            assertTrue(height_cssValue.contains("100px"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
