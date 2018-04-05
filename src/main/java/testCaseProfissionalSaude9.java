@@ -57,7 +57,7 @@ public class testCaseProfissionalSaude9 {
         driver.findElement(By.cssSelector("#new_category_btn")).click();
         Thread.sleep(3000);
         // Warning: verifyTextPresent may require manual changes
-        
+
         String height_cssValue =  driver.findElement(By.cssSelector("#new_category")).getCssValue("height");
         System.out.println(height_cssValue);
         try {

@@ -147,6 +147,39 @@ public class testSuiteProfissionalSaude extends junit.framework.TestCase{
         }
     }
 
+    @Test
+    public void testTestCaseProfissionalSaude9() throws Exception {
+        driver.get("http://159.65.29.212/login");
+        driver.findElement(By.id("email")).clear();
+        driver.findElement(By.id("email")).sendKeys("profissionaldesaude@mail.com");
+        driver.findElement(By.id("password")).clear();
+        driver.findElement(By.id("password")).sendKeys("password_tp18_p");
+        driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
+        // Warning: verifyTextPresent may require manual changes
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Funcionalidades"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+        driver.findElement(By.linkText("Fórum")).click();
+        // Warning: verifyTextPresent may require manual changes
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Nova Categoria"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+        driver.findElement(By.cssSelector("#new_category_btn")).click();
+        Thread.sleep(3000);
+        // Warning: verifyTextPresent may require manual changes
+
+        String height_cssValue =  driver.findElement(By.cssSelector("#new_category")).getCssValue("height");
+        System.out.println(height_cssValue);
+        try {
+            assertTrue(height_cssValue.contains("100px"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+    }
 
     @After
     public void tearDown() throws Exception {
