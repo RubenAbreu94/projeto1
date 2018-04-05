@@ -3,6 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
@@ -28,10 +29,13 @@ public class testCaseLogin12 {
                 "drivers\\chromedriver.exe");
         System.setProperty("phantomjs.binary.path",
                 "drivers\\phantomjs.exe");
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("–-lang=pt-pt");
+        driver = new ChromeDriver(options);
         baseUrl = "http://159.65.29.212/login";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
+
 
     @Test
     public void testTestCaseLogin12() throws Exception {
@@ -44,6 +48,8 @@ public class testCaseLogin12 {
         driver.findElement(By.id("password")).sendKeys("password_tp18_t");
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
+
+        //System.out.println(driver.findElement(By.id("email")).getAttribute("validationMessage"));
         try {
             assertTrue(driver.findElement(By.id("email")).getAttribute("validationMessage").contains("Preencha este campo"));
         } catch (Error e) {
