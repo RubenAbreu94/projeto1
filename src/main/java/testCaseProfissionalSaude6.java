@@ -41,11 +41,16 @@ public class testCaseProfissionalSaude6 {
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys("password_tp18_p");
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
-        int rowCount=driver.findElement(By.cssSelector("table.table"))
-
-
-
-
+        int rowCount=driver.findElements(By.cssSelector("table.table")).size();
+        //boolean botaoAtivo=assertTrue(driver.findElement(By.cssSelector("btn btn-primary mb-2")).isEnabled());
+        if (rowCount ==0){
+            try {
+                //assertTrue(driver.findElement(By.cssSelector("btn btn-primary mb-2")).getText().contains("Exportar Adoloscentes"));
+                assertFalse(driver.findElement(By.cssSelector("button.btn.btn-primary.mb-2")).isEnabled());
+            } catch (Error e) {
+                verificationErrors.append(e.toString());
+            }
+        }
 
     }
 
