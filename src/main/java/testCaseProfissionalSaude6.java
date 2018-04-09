@@ -8,10 +8,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
-public class testCaseProfissionalSaude4 {
+public class testCaseProfissionalSaude6 {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -35,26 +34,19 @@ public class testCaseProfissionalSaude4 {
     }
 
     @Test
-    public void testTestCaseProfissionalSaude4() throws Exception {
+    public void testTestCaseProfissionalSaude6() throws Exception {
         driver.get("http://159.65.29.212/login");
         driver.findElement(By.id("email")).clear();
         driver.findElement(By.id("email")).sendKeys("profissionaldesaude@mail.com");
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys("password_tp18_p");
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
-        // Warning: verifyTextPresent may require manual changes
-        try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
-        driver.findElement(By.xpath("(//button[@type='button'])[4]")).click();
-        // Warning: verifyTextPresent may require manual changes
-        try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Formulário de Criação de Adolescentes"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
+        int rowCount=driver.findElement(By.cssSelector("table.table"))
+
+
+
+
+
     }
 
     @After
@@ -99,3 +91,4 @@ public class testCaseProfissionalSaude4 {
         }
     }
 }
+
