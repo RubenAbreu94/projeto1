@@ -29,6 +29,7 @@ public class testCaseProfissionalSaude7 {
                 "drivers\\phantomjs.exe");
         driver = new ChromeDriver();
         baseUrl = "http://159.65.29.212/login";
+        driver.manage().window().setSize(new Dimension(1024,768));
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
@@ -47,10 +48,11 @@ public class testCaseProfissionalSaude7 {
             verificationErrors.append(e.toString());
         }
         driver.findElement(By.id("delete-button")).click();
+        Thread.sleep(3000);
         driver.findElement(By.cssSelector("button.btn.btn-danger")).click();
         // Warning: verifyTextNotPresent may require manual changes
         try {
-            assertFalse(driver.findElement(By.cssSelector("BODY")).getText().contains("ruben_abreu__94@mail.com"));
+            assertFalse(driver.findElement(By.cssSelector("BODY")).getText().matches("ruben_abreu__94@mail.com"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
