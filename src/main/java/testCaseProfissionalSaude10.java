@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class testCaseProfissionalSaude5 {
+public class testCaseProfissionalSaude10 {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -34,23 +34,15 @@ public class testCaseProfissionalSaude5 {
     }
 
     @Test
-    public void testDddd() throws Exception {
+    public void testTestCaseProfissionalSaude10() throws Exception {
         driver.get("http://159.65.29.212/");
         driver.findElement(By.linkText("TeenPower")).click();
-        driver.findElement(By.linkText("TeenPower")).click();
-        driver.findElement(By.cssSelector("button.navbar-toggler")).click();
-        driver.findElement(By.cssSelector("button.navbar-toggler")).click();
-        driver.findElement(By.linkText("Login")).click();
+       // driver.findElement(By.cssSelector("button.navbar-toggler")).click();
+        //driver.findElement(By.cssSelector("button.navbar-toggler")).click();
         driver.findElement(By.linkText("Login")).click();
         driver.findElement(By.id("email")).clear();
         driver.findElement(By.id("email")).sendKeys("profissionaldesaude@mail.com");
-        driver.findElement(By.id("email")).clear();
-        driver.findElement(By.id("email")).sendKeys("profissionaldesaude@mail.com");
-        driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys("password_tp18_p");
-        driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).sendKeys("password_tp18_p");
-        driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
@@ -62,8 +54,15 @@ public class testCaseProfissionalSaude5 {
         driver.findElement(By.cssSelector("button.btn.btn-secondary")).click();
         //driver.findElement(By.name("file")).click();
 
+        WebElement uploadElement = driver.findElement(By.name("file"));
 
+        // enter the file path onto the file-selection input field
+        uploadElement.sendKeys("C:\\TeenPower\\Adolescentes_Profissional de Saude_2018_4_9.xlsx");
 
+        // click the "UploadFile" button
+        //driver.findElement(By.name("send")).click();
+
+        driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
 
         driver.findElement(By.id("navbarDropdownMenuLink")).click();
         driver.findElement(By.id("navbarDropdownMenuLink")).click();
