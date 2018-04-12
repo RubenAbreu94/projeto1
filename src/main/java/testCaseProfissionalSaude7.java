@@ -42,17 +42,17 @@ public class testCaseProfissionalSaude7 {
         driver.findElement(By.id("password")).sendKeys("password_tp18_p");
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
-        try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("ruben_abreu__94@mail.com"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
-        driver.findElement(By.id("delete-button")).click();
+        String USER_EMAIL=driver.findElement(By.cssSelector("table.table tr:last-child td:nth-child(2)")).getText();
+
+        driver.findElement(By.cssSelector("table.table tr:last-child #delete-button")).click();
         Thread.sleep(3000);
-        driver.findElement(By.cssSelector("button.btn.btn-danger")).click();
+        driver.findElement(By.cssSelector("button[type=submit]")).click();
         // Warning: verifyTextNotPresent may require manual changes
+        Thread.sleep(3000);
         try {
-            assertFalse(driver.findElement(By.cssSelector("BODY")).getText().matches("ruben_abreu__94@mail.com"));
+
+            assertEquals(false,driver.findElement(By.cssSelector("table.table tr:last-child")).getText().matches(USER_EMAIL));
+
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

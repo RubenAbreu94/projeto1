@@ -1,3 +1,4 @@
+import org.apache.commons.io.filefilter.FalseFileFilter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,12 +42,16 @@ public class testCaseProfissionalSaude6 {
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys("password_tp18_p");
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
-        int rowCount=driver.findElements(By.cssSelector("table.table")).size();
+        int rowCount=driver.findElements(By.cssSelector("table.table tr")).size();
+
         //boolean botaoAtivo=assertTrue(driver.findElement(By.cssSelector("btn btn-primary mb-2")).isEnabled());
-        if (rowCount ==0){
+        if (rowCount ==1){
             try {
                 //assertTrue(driver.findElement(By.cssSelector("btn btn-primary mb-2")).getText().contains("Exportar Adoloscentes"));
-                assertFalse(driver.findElement(By.cssSelector("button.btn.btn-primary.mb-2")).isEnabled());
+                //Assert.AreEqual(false, button.Enabled);
+                assertEquals(false,driver.findElement(By.cssSelector("button.btn.btn-primary.mb-2")).isEnabled());
+                //assertFalse(driver.findElement(By.cssSelector("button.btn.btn-primary.mb-2")).isEnabled());
+
             } catch (Error e) {
                 verificationErrors.append(e.toString());
             }
