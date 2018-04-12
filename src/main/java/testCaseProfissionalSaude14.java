@@ -59,6 +59,11 @@ public class testCaseProfissionalSaude14 {
         driver.findElement(By.xpath("//form[@id='form-add-teen']/div[5]/div/div")).click();
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         driver.findElement(By.linkText("1")).click();
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("TESTE15@mail.com"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
     }
 
     @After
