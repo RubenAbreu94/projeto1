@@ -8,10 +8,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-public class testCaseProfissionalSaude14 {
+public class testSuiteProfissionalSaudeCriarApagar extends junit.framework.TestCase{
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -35,7 +32,7 @@ public class testCaseProfissionalSaude14 {
     }
 
     @Test
-    public void testTestCaseProfissionalSaude14() throws Exception {
+    public void testTestCaseProfissionalSaude13() throws Exception {
         driver.get("http://159.65.29.212/login");
         driver.findElement(By.id("email")).clear();
         driver.findElement(By.id("email")).sendKeys("profissionaldesaude@mail.com");
@@ -51,15 +48,40 @@ public class testCaseProfissionalSaude14 {
         // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
         driver.findElement(By.linkText("Criar Novo Adolescente")).click();
         driver.findElement(By.id("inputName")).clear();
-        driver.findElement(By.id("inputName")).sendKeys("Beatriz Junqueira Santos");
+        driver.findElement(By.id("inputName")).sendKeys("Rúben Emanuel Gonçalves Abreu");
         driver.findElement(By.id("inputEmail")).clear();
-        driver.findElement(By.id("inputEmail")).sendKeys("TESTE15@mail.com");
+        driver.findElement(By.id("inputEmail")).sendKeys("TESTE14@mail.com");
         driver.findElement(By.id("inputInstitution")).clear();
-        driver.findElement(By.id("inputInstitution")).sendKeys("ESTG");
-        driver.findElement(By.xpath("//form[@id='form-add-teen']/div[5]/div/div")).click();
+        driver.findElement(By.id("inputInstitution")).sendKeys("ESSLei");
+        driver.findElement(By.xpath("//form[@id='form-add-teen']/div[5]/div/div[2]/label")).click();
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("TESTE15@mail.com"));
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("TESTE14@mail.com"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+    }
+
+    @Test
+    public void testTestCaseProfissionalSaude7() throws Exception {
+        driver.get("http://159.65.29.212/login");
+        driver.findElement(By.id("email")).clear();
+        driver.findElement(By.id("email")).sendKeys("profissionaldesaude@mail.com");
+        driver.findElement(By.id("password")).clear();
+        driver.findElement(By.id("password")).sendKeys("password_tp18_p");
+        driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
+        // Warning: verifyTextPresent may require manual changes
+        String USER_EMAIL=driver.findElement(By.cssSelector("table.table tr:last-child td:nth-child(2)")).getText();
+
+        driver.findElement(By.cssSelector("table.table tr:last-child #delete-button")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.cssSelector("button[type=submit]")).click();
+        // Warning: verifyTextNotPresent may require manual changes
+        Thread.sleep(3000);
+        try {
+
+            assertEquals(false,driver.findElement(By.cssSelector("table.table tr:last-child")).getText().matches(USER_EMAIL));
+
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

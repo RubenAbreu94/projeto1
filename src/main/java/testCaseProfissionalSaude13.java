@@ -58,7 +58,13 @@ public class testCaseProfissionalSaude13 {
         driver.findElement(By.id("inputInstitution")).sendKeys("ESSLei");
         driver.findElement(By.xpath("//form[@id='form-add-teen']/div[5]/div/div[2]/label")).click();
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-        driver.findElement(By.linkText("1")).click();
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("TESTE14@mail.com"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+        driver.findElement(By.linkText("Profissional de Saude")).click();
+        driver.findElement(By.linkText("Logout")).click();
     }
 
     @After

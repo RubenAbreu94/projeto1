@@ -56,6 +56,8 @@ public class testCaseProfissionalSaude7 {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
+        driver.findElement(By.linkText("Profissional de Saude")).click();
+        driver.findElement(By.linkText("Logout")).click();
     }
 
     @After
