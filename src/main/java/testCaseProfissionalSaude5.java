@@ -66,16 +66,18 @@ public class testCaseProfissionalSaude5 {
       //Assert.assertTrue(fileName.equals("Adolescentes_Profissional de Saude_2018_4_10.xlsx"));
 
       try {
-          isFileDownloaded("C:\\Users\\Ruben\\Downloads\\",fileName);
+          isFileDownloaded(downloadPath,fileName);
           Assert.assertTrue(fileName.equals(fileName));
           //System.out.println(fileName);
       } catch (Error e) {
           verificationErrors.append(e.toString());
       }
+
+
        //System.out.println(fileName);
 
-
-
+// C:\Users\Ruben\Downloads\
+ // chrome://downloads
 
 
 
