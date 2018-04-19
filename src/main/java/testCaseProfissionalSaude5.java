@@ -1,18 +1,19 @@
 import java.io.File;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 
 import org.junit.*;
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
+
 
 
 public class testCaseProfissionalSaude5 {
@@ -20,7 +21,17 @@ public class testCaseProfissionalSaude5 {
     private String baseUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
-    private static String downloadPath = "C:\\Users\\Ruben\\Downloads\\";
+    //private static String downloadPath = "C:\\Users\\Ruben\\Downloads\\";
+    //private String downloadPath = "\\Google\\Chrome\\downloads\\";//System.getProperty("java.io.tmpdir");
+    private String downloadPath = System.getProperty("user.dir") + "\\Downloads";
+    /*
+    ChromeOptions options = new ChromeOptions();
+    Map<String, Object> preferences = new Hashtable<String, Object>();
+
+     preferences.("profile.default_content_settings.popups", 0);
+     preferences.put("download.default_directory", downloadFilepath);
+*/
+
 
     @Before
     public void setUp() throws Exception {
@@ -33,9 +44,17 @@ public class testCaseProfissionalSaude5 {
                 "drivers\\chromedriver.exe");
         System.setProperty("phantomjs.binary.path",
                 "drivers\\phantomjs.exe");
-        driver = new ChromeDriver();
         baseUrl = "http://159.65.29.212/login";
         //driver.manage().window().setSize(new Dimension(1024,768));
+
+        ChromeOptions options = new ChromeOptions();
+        HashMap<String, Object> preferences = new HashMap<String, Object>();
+        System.out.println();
+        preferences.put("profile.default_content_settings.popups", 0);
+        preferences.put("download.default_directory", downloadPath);
+
+        options.setExperimentalOption("prefs", preferences);
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
@@ -63,34 +82,37 @@ public class testCaseProfissionalSaude5 {
       Thread.sleep(10000);
       File getLatestFile = getLatestFilefromDir(downloadPath);
       String fileName = getLatestFile.getName();
-      //Assert.assertTrue(fileName.equals("Adolescentes_Profissional de Saude_2018_4_10.xlsx"));
+
+        System.out.println(downloadPath);
+
 
       try {
           isFileDownloaded(downloadPath,fileName);
-          Assert.assertTrue(fileName.equals(fileName));
-          //System.out.println(fileName);
+          Assert.assertTrue(fileName.contains(".xlsx"));
+          /*
+          File file = new File(downloadPath + "\\" + fileName);
+          System.out.println(downloadPath + fileName);
+          file.delete();
+          */
       } catch (Error e) {
           verificationErrors.append(e.toString());
       }
 
-
        //System.out.println(fileName);
-
-// C:\Users\Ruben\Downloads\
- // chrome://downloads
-
-
-
-        // Adolescentes_Profissional de Saude_2018_4_10.xlsx
-
-
-
 
 
     }
 
     @After
     public void tearDown() throws Exception {
+
+        File getLatestFile = getLatestFilefromDir(downloadPath);
+        String fileName = getLatestFile.getName();
+
+        File file = new File(downloadPath + "\\" + fileName);
+        System.out.println(downloadPath + fileName);
+        file.delete();
+
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
@@ -98,7 +120,11 @@ public class testCaseProfissionalSaude5 {
         }
     }
 
-
+/*
+    public String getDownloadPath() {
+        return this.dd;
+    }
+*/
 
     public boolean isFileDownloaded(String downloadPath, String fileName) {
         boolean flag = false;
@@ -112,7 +138,6 @@ public class testCaseProfissionalSaude5 {
 
         return flag;
     }
-
 
     private boolean isFileDownloaded_Ext(String dirPath, String ext){
         boolean flag=false;
