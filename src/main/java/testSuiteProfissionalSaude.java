@@ -208,6 +208,28 @@ public class testSuiteProfissionalSaude extends junit.framework.TestCase{
         }
     }
 
+    @Test
+    public void testTestCaseProfissionalSaude12() throws Exception {
+        driver.get("http://159.65.29.212/login");
+        driver.findElement(By.id("email")).clear();
+        driver.findElement(By.id("email")).sendKeys("profissionaldesaude@mail.com");
+        driver.findElement(By.id("password")).clear();
+        driver.findElement(By.id("password")).sendKeys("password_tp18_p");
+        driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
+        // Warning: verifyTextPresent may require manual changes
+        String USER_EMAIL=driver.findElement(By.cssSelector("table.table tr:last-child td:nth-child(2)")).getText();
+
+        driver.findElement(By.cssSelector("table.table tr:last-child #delete-button")).click();
+        Thread.sleep(3000);
+        try {
+            assertTrue(driver.findElement(By.cssSelector("div.modal-body")).getText().contains("Tem a certeza que pretende eliminar o utilizador Rúben Emanuel Gonçalves Abreu?"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+
+        System.out.println("Não contêm o nome do Utilizador na mensagem de eliminar!");
+    }
+
     @After
     public void tearDown() throws Exception {
         driver.quit();
