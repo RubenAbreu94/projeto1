@@ -15,6 +15,7 @@ public class testCaseProfissionalSaude10 {
     private String baseUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
+    private String ficherioImportar = System.getProperty("user.dir") + "\\Uploads\\Adolescentes_Profissional de Saude_2018_4_19.xlsx";
 
     @Before
     public void setUp() throws Exception {
@@ -57,17 +58,28 @@ public class testCaseProfissionalSaude10 {
         WebElement uploadElement = driver.findElement(By.name("file"));
 
         // enter the file path onto the file-selection input field
-        uploadElement.sendKeys("C:\\TeenPower\\Adolescentes_Profissional de Saude_2018_4_9.xlsx");
-
-        // click the "UploadFile" button
-        //driver.findElement(By.name("send")).click();
-
+        uploadElement.sendKeys(ficherioImportar);
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
 
+
+        //assertEquals("Whoops, looks like something went wrong.", driver.findElement(By.cssSelector("div.title")).getText());
+
+
+        try {
+
+
+            assertTrue(driver.findElement(By.cssSelector("div.title")).getText().contains("Whoops, looks like something went wrong."));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+
+
+/*
         driver.findElement(By.id("navbarDropdownMenuLink")).click();
         driver.findElement(By.id("navbarDropdownMenuLink")).click();
         driver.findElement(By.linkText("Logout")).click();
         driver.findElement(By.linkText("Logout")).click();
+        */
     }
 
     @After
