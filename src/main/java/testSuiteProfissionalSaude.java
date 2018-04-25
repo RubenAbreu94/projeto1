@@ -230,6 +230,42 @@ public class testSuiteProfissionalSaude extends junit.framework.TestCase{
         System.out.println("Não contêm o nome do Utilizador na mensagem de eliminar!");
     }
 
+    @Test
+    public void testTestCaseProfissionalSaude20() throws Exception {
+        driver.get("http://159.65.29.212/login");
+        driver.findElement(By.id("email")).clear();
+        driver.findElement(By.id("email")).sendKeys("profissionaldesaude@mail.com");
+        driver.findElement(By.id("password")).clear();
+        driver.findElement(By.id("password")).sendKeys("password_tp18_p");
+        driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
+        // Warning: verifyTextPresent may require manual changes
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Rúben Emanuel Gonçalves Abreu"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+        // Warning: verifyTextPresent may require manual changes
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("ESSLei"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+        driver.findElement(By.xpath("(//button[@type='button'])[9]")).click();
+        driver.findElement(By.cssSelector("button.btn.btn-secundary")).click();
+        // Warning: verifyTextPresent may require manual changes
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Rúben Emanuel Gonçalves Abreu"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+        // Warning: verifyTextPresent may require manual changes
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("ESSLei"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+    }
+
     @After
     public void tearDown() throws Exception {
         driver.quit();
