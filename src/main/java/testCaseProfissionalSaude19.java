@@ -47,8 +47,6 @@ public class testCaseProfissionalSaude19 {
         driver.findElement(By.id("inputInstitution")).clear();
         driver.findElement(By.id("inputInstitution")).sendKeys("ESTG");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-        //assertEquals("Alteração efectuada com sucesso!", driver.findElement(By.id("card-body h5")).getText());
-
 
         try {
             assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Alteração efectuada com sucesso!"));
