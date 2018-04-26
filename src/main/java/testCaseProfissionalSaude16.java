@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
@@ -15,6 +17,7 @@ public class testCaseProfissionalSaude16 {
     private String baseUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
+
 
     @Before
     public void setUp() throws Exception {
@@ -43,14 +46,43 @@ public class testCaseProfissionalSaude16 {
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys("password_tp18_p");
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
-        String primeiroEmail=driver.findElement(By.cssSelector("table.table tr:first-child td:nth-child(2)")).getText();
-        //String primeiroEmail = driver.findElement(By.xpath("/div[@id='appContainer']/div/div/div/table/thead/tr[2]/td[2]")).getText();
-        driver.findElement(By.cssSelector("table.table tr:first-child")).click();
+
+
+
+
+        WebElement table = driver.findElement(By.xpath("//table[@class='table']"));
+
+        List<WebElement> linhas = table.findElements(By.tagName("tr"));
+        WebElement linhaPretendida = null;
+        for (int i = 0; i<linhas.size();i++) {
+                if(linhas.get(i).getText().contains("teste55@mail.com")) {
+                    linhaPretendida = linhas.get(i);
+                    break;
+                }
+        }
+        assertNotNull(linhaPretendida);
+        System.out.println(linhaPretendida.getTagName());
+
+
+
+
+
+        }
+
+        /*
+        WebElement row = table.findElement(By.xpath("//tr/td[text()='teste55@mail.com']"));
+        //WebElement primeiroMail = driver.findElement(By.xpath("//tr//td[text()='teste55@mail.com']"));
+        assertNotNull(table);
+        System.out.println(row.getTagName());
+*/
+
+        //driver.findElement(By.cssSelector("table.table tr button.btn.btn-primary")).click();
+
         //driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         //driver.findElement(By.linkText("Rúben Emanuel Gonçalves Abreu")).click();
-        String segundoEmail = driver.findElement(By.xpath("//div[@id='appContainer']/div/div/div/div[2]/p[2]/label")).getText();
-        assertEquals(primeiroEmail,segundoEmail);
-    }
+        //String segundoEmail = driver.findElement(By.xpath("//div[@id='appContainer']/div/div/div/div[2]/p[2]/label")).getText();
+        //assertEquals(primeiroMail,segundoEmail);
+
 
     @After
     public void tearDown() throws Exception {
