@@ -66,21 +66,6 @@ public class testCaseProfissionalSaude16 {
         Thread.sleep(1000);
 
 
-
-
-
-        /*
-
-        driver.get("http://159.65.29.212/");
-        driver.findElement(By.linkText("TeenPower")).click();
-        driver.findElement(By.linkText("Login")).click();
-        driver.findElement(By.id("email")).clear();
-        driver.findElement(By.id("email")).sendKeys("profissionaldesaude@mail.com");
-        driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).sendKeys("password_tp18_p");
-        driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
-    */
-
         WebElement table = driver.findElement(By.xpath("//table[@class='table']"));
 
         List<WebElement> linhas = table.findElements(By.tagName("tr"));
