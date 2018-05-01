@@ -38,6 +38,39 @@ public class testCaseProfissionalSaude16 {
 
     @Test
     public void testTestCaseProfissionalSaude16() throws Exception {
+
+        driver.get("http://159.65.29.212/login");
+        driver.findElement(By.id("email")).clear();
+        driver.findElement(By.id("email")).sendKeys("profissionaldesaude@mail.com");
+        driver.findElement(By.id("password")).clear();
+        driver.findElement(By.id("password")).sendKeys("password_tp18_p");
+        driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
+        // Warning: verifyTextPresent may require manual changes
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+        // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
+        driver.findElement(By.linkText("Criar Novo Adolescente")).click();
+        driver.findElement(By.id("inputName")).clear();
+        driver.findElement(By.id("inputName")).sendKeys("Teste ProfSaude Dezasseis");
+        driver.findElement(By.id("inputEmail")).clear();
+        driver.findElement(By.id("inputEmail")).sendKeys("testeProf16@mail.com");
+        driver.findElement(By.id("inputInstitution")).clear();
+        driver.findElement(By.id("inputInstitution")).sendKeys("ESTG");
+        driver.findElement(By.xpath("//form[@id='form-add-teen']/div[5]/div/div")).click();
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        driver.findElement(By.linkText("Gestão de Adolescentes")).click();
+
+        Thread.sleep(1000);
+
+
+
+
+
+        /*
+
         driver.get("http://159.65.29.212/");
         driver.findElement(By.linkText("TeenPower")).click();
         driver.findElement(By.linkText("Login")).click();
@@ -46,16 +79,14 @@ public class testCaseProfissionalSaude16 {
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys("password_tp18_p");
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
-
-
-
+    */
 
         WebElement table = driver.findElement(By.xpath("//table[@class='table']"));
 
         List<WebElement> linhas = table.findElements(By.tagName("tr"));
         WebElement linhaPretendida = null;
         for (int i = 0; i<linhas.size();i++) {
-                if(linhas.get(i).getText().contains("teste55@mail.com")) {
+                if(linhas.get(i).getText().contains("testeProf16@mail.com")) {
                     linhaPretendida = linhas.get(i);
                     break;
                 }
@@ -63,25 +94,43 @@ public class testCaseProfissionalSaude16 {
         assertNotNull(linhaPretendida);
         System.out.println(linhaPretendida.getTagName());
 
+        linhaPretendida.findElement(By.cssSelector("button.btn.btn-primary")).click();
 
+        Thread.sleep(1000);
+
+        WebElement inputBox = driver.findElement(By.id("inputEmail"));
+        String textInsideInputBox = inputBox.getAttribute("value");
+
+        try {
+            assertEquals("testeProf16@mail.com", textInsideInputBox);
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+        driver.findElement(By.linkText("Gestão de Adolescentes")).click();
+
+        Thread.sleep(1000);
+
+
+
+
+        WebElement table2 = driver.findElement(By.xpath("//table[@class='table']"));
+
+        List<WebElement> linhas2 = table2.findElements(By.tagName("tr"));
+        WebElement linhaPretendida2 = null;
+        for (int i = 0; i<linhas2.size();i++) {
+            if(linhas2.get(i).getText().contains("testeProf16@mail.com")) {
+                linhaPretendida2 = linhas2.get(i);
+                break;
+            }
+        }
+
+        linhaPretendida2.findElement(By.cssSelector("tr:last-child #delete-button")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.cssSelector("button.btn.btn-danger")).click();
 
 
 
         }
-
-        /*
-        WebElement row = table.findElement(By.xpath("//tr/td[text()='teste55@mail.com']"));
-        //WebElement primeiroMail = driver.findElement(By.xpath("//tr//td[text()='teste55@mail.com']"));
-        assertNotNull(table);
-        System.out.println(row.getTagName());
-*/
-
-        //driver.findElement(By.cssSelector("table.table tr button.btn.btn-primary")).click();
-
-        //driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
-        //driver.findElement(By.linkText("Rúben Emanuel Gonçalves Abreu")).click();
-        //String segundoEmail = driver.findElement(By.xpath("//div[@id='appContainer']/div/div/div/div[2]/p[2]/label")).getText();
-        //assertEquals(primeiroMail,segundoEmail);
 
 
     @After
