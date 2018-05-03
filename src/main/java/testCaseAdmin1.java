@@ -1,16 +1,16 @@
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
 
-public class testCaseFuncAdmin1 {
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static org.junit.Assert.fail;
+
+public class testCaseAdmin1 {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -47,7 +47,6 @@ public class testCaseFuncAdmin1 {
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys("admin_tp18_a");
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
-        driver.findElement(By.linkText("Gestão de Utilizadores")).click();
         driver.findElement(By.linkText("Gestão de Utilizadores")).click();
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
     }
