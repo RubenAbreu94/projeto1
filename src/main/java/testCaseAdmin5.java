@@ -48,6 +48,14 @@ public class testCaseAdmin5 {
         driver.findElement(By.id("submit_category")).click();
 
 
+            try {
+                assertTrue(driver.findElement(By.xpath("//div[@id='chatter']/div[2]/div")).getText().contains("Nova Categoria criada com Sucesso."));
+            } catch (Error e) {
+                verificationErrors.append(e.toString());
+            }
+
+
+
         driver.findElement(By.linkText("Automatizados")).click();
         driver.findElement(By.id("delete-button")).click();
         Thread.sleep(1000);
