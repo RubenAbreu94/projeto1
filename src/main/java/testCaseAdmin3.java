@@ -55,7 +55,6 @@ public class testCaseAdmin3 {
         driver.findElement(By.id("inputEmail")).sendKeys("joaoabreu@mail.com");
         driver.findElement(By.id("inputInstitution")).clear();
         driver.findElement(By.id("inputInstitution")).sendKeys("ESTG");
-        //driver.findElement(By.cssSelector("input-group-text")).click();
         driver.findElement(By.xpath("//form[@id='form-add-teen']/div[8]/div/div[2]/label")).click();
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         // Warning: verifyTextPresent may require manual changes
