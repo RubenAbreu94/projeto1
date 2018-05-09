@@ -73,7 +73,15 @@ public class testCaseAdmin9 {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
+        driver.findElement(By.linkText("Administrator")).click();
         driver.findElement(By.linkText("Logout")).click();
+        // Warning: verifyTextPresent may require manual changes
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Página Inicial"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+        driver.get("http://159.65.29.212//login");
         driver.findElement(By.id("email")).clear();
         driver.findElement(By.id("email")).sendKeys("professor@mail.com");
         driver.findElement(By.id("password")).clear();
