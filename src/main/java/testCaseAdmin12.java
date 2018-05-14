@@ -76,7 +76,7 @@ public class testCaseAdmin12 {
         driver.findElement(By.id("submit_response")).click();
 
         try {
-            assertTrue(driver.findElement(By.xpath("//div[@id='chatter']/div[2]/div")).getText().contains("Resposta Submetida com Sucesso."));
+            assertTrue("Após apagar uma discussão deve-me ser apresentada uma mensagem de sucesso",driver.findElement(By.xpath("//div[@id='chatter']/div[2]/div")).getText().contains("Resposta Submetida com Sucesso."));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

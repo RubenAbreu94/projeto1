@@ -45,6 +45,7 @@ public class testCaseAdmin11 {
         driver.findElement(By.id("new_category_btn")).click();
 
         driver.findElement(By.name("name")).sendKeys("Automatizados");
+        Thread.sleep(2000);
         driver.findElement(By.id("submit_category")).click();
         driver.findElement(By.linkText("Automatizados")).click();
         driver.findElement(By.id("new_discussion_btn")).click();
@@ -75,7 +76,7 @@ public class testCaseAdmin11 {
         driver.findElement(By.id("submit_response")).click();
 
         try {
-            assertTrue(driver.findElement(By.xpath("//div[@id='chatter']/div[2]/div")).getText().contains("Resposta Submetida com Sucesso."));
+            assertTrue("Após criar uma nova resposta numa discussão deve ser apresentada uma mensagem de sucesso ",driver.findElement(By.xpath("//div[@id='chatter']/div[2]/div")).getText().contains("Resposta Submetida com Sucesso."));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

@@ -45,11 +45,12 @@ public class testCaseAdmin5 {
         driver.findElement(By.linkText("Fórum")).click();
         driver.findElement(By.id("new_category_btn")).click();
         driver.findElement(By.name("name")).sendKeys("Automatizados");
+        Thread.sleep(2000);
         driver.findElement(By.id("submit_category")).click();
 
 
             try {
-                assertTrue(driver.findElement(By.xpath("//div[@id='chatter']/div[2]/div")).getText().contains("Nova Categoria criada com Sucesso."));
+                assertTrue("Após criar uma categoria deveria ser apresentada uma mensagem de sucesso",driver.findElement(By.cssSelector("BODY")).getText().contains("Nova Categoria criada com Sucesso."));
             } catch (Error e) {
                 verificationErrors.append(e.toString());
             }

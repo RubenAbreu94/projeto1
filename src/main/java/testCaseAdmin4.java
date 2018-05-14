@@ -59,7 +59,7 @@ public class testCaseAdmin4 {
 
 
     try {
-      assertTrue(driver.findElement(By.xpath("//div[@id='chatter']/div[2]/div")).getText().contains("Nova Categoria criada com Sucesso."));
+      assertTrue("Após criar uma categoria/sub categoria deveria ser apresentada uma mensagem de sucesso",driver.findElement(By.cssSelector("BODY")).getText().contains("Nova Categoria criada com Sucesso."));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }

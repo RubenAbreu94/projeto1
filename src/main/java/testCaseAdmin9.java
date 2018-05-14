@@ -50,20 +50,31 @@ public class testCaseAdmin9 {
         }
         driver.findElement(By.cssSelector("button.btn.btn-secondary")).click();
         driver.findElement(By.name("file")).clear();
+
+
+
+
+        //// ABREU , NÃO PODES METER UM CAMINHO ABSOLUTO AQUI  , VAI VER COMO FIZ NO OUTRO TESTE DE IMPORTAR
+
         driver.findElement(By.name("file")).sendKeys("C:\\Users\\Ruben Abreu\\Desktop\\Admin_Role_5_Instituicoes.csv");
+
+
+
+
+
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         driver.findElement(By.id("selectAll")).click();
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Sucesso! Foram enviados 9 emails de confirmação."));
+            assertTrue("Após importar com sucesso deveria ser mostrada uma mensagem",driver.findElement(By.cssSelector("BODY")).getText().contains("Sucesso! Foram enviados 9 emails de confirmação."));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
         driver.findElement(By.linkText("Gestão de Utilizadores")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("jsilva@mail.com"));
+            assertTrue("Não se verificou que um dos utilizadores importados esteja presente na lista de utilizadores",driver.findElement(By.cssSelector("BODY")).getText().contains("jsilva@mail.com"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

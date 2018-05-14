@@ -67,7 +67,8 @@ public class TestCaseAdmin15 {
 
 
         try {
-            assertFalse("Ao tentar apagar uma sub-categoria esta não foi eliminada com sucesso",driver.findElement(By.xpath("BODY")).getText().contains("TesteAuto05"));
+            assertFalse("Ao tentar apagar uma sub-categoria esta não foi eliminada com sucesso",driver.findElement(By.cssSelector("BODY")).getText().contains("TesteAuto05"));
+            //assertFalse("Ao tentar apagar uma sub-categoria esta não foi eliminada com sucesso",driver.findElement(By.xpath("BODY")).getText().contains("TesteAuto05"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

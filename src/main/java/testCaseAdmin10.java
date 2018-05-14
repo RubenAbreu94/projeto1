@@ -56,14 +56,14 @@ public class testCaseAdmin10 {
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Sucesso! Foram enviados 9 emails de confirmação."));
+            assertTrue("Apos importar com sucesso deveria ser mostrada uma mensagem de sucesso",driver.findElement(By.cssSelector("BODY")).getText().contains("Sucesso! Foram enviados 9 emails de confirmação."));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
         driver.findElement(By.linkText("Gestão de Utilizadores")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("jsilva@mail.com"));
+            assertTrue("Um ou mais dos utilizadores adicionados nao se encontra presenta na lista de utilizadores",driver.findElement(By.cssSelector("BODY")).getText().contains("jsilva@mail.com"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
