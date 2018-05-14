@@ -48,7 +48,7 @@ public class testCaseProfissionalSaude25 {
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
+            assertTrue("Após efetuar login com prof. saude deveria-me ser apresentada a página de lista de adolescentes",driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
@@ -90,7 +90,7 @@ public class testCaseProfissionalSaude25 {
         driver.findElement(By.id("inputEmail")).clear();
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("O campo Email é obrigatório."));
+            assertTrue("Ao editar um perfil e não preencher o email deve-me ser apresentada uma mensagem de erro a avisar que esse campo é obrigatório",driver.findElement(By.cssSelector("BODY")).getText().contains("O campo Email é obrigatório."));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

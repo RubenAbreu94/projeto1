@@ -67,7 +67,7 @@ public class testCaseProfissionalSaude22 {
 
 
         try {
-            assertTrue(driver.findElement(By.cssSelector("strong")).getText().contains("Sucesso! Fo"));
+            assertTrue("Após importar utilizadores deveria-me ser apresentada uma mensagem de sucesso, não o está a acontecer",driver.findElement(By.cssSelector("strong")).getText().contains("Sucesso! Fo"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

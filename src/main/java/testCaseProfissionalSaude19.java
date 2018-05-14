@@ -49,7 +49,7 @@ public class testCaseProfissionalSaude19 {
         driver.findElement(By.xpath("//button[@type='submit']")).click();
 
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Alteração efectuada com sucesso!"));
+            assertTrue("Após efetuar uma edição de perfil e submete-la com sucesso deveria ser apresentada uma mensagem de sucesso",driver.findElement(By.cssSelector("BODY")).getText().contains("Alteração efectuada com sucesso!"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

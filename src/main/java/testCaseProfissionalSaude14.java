@@ -44,7 +44,7 @@ public class testCaseProfissionalSaude14 {
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
+            assertTrue("Devia aparecer a página Lista de adolescentes apos efetuar login com prof. saude",driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
@@ -59,7 +59,7 @@ public class testCaseProfissionalSaude14 {
         driver.findElement(By.xpath("//form[@id='form-add-teen']/div[5]/div/div")).click();
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("TESTE15@mail.com"));
+            assertTrue("Foi criado um utilizador que não se verifica estar na lista ",driver.findElement(By.cssSelector("BODY")).getText().contains("TESTE15@mail.com"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

@@ -85,7 +85,7 @@ public class testCaseProfissionalSaude24 {
         driver.findElement(By.id("inputName")).clear();
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("O campo Nome é obrigatório"));
+            assertTrue("Ao editar o perfil de um utilizador e deixo o campo nome em branco deve-me ser apresentada uma mensagem avisar que este campo é obrigatório",driver.findElement(By.cssSelector("BODY")).getText().contains("O campo Nome é obrigatório"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

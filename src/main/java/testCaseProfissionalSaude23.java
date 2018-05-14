@@ -48,7 +48,7 @@ public class testCaseProfissionalSaude23 {
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
+            assertTrue("Apos efetuar login com prof. saude deveria ser apresentada a pag. de lista de adolescentes",driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
@@ -67,7 +67,7 @@ public class testCaseProfissionalSaude23 {
 
 
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Erros:  Já existe um utilizador registado com o mesmo e-mail"));
+            assertTrue("Ao tentar importar um utilizador com um email ja existente na lista de adolescente deve-me ser apresentado uma mensagem de erro a avisar disso mesmo",driver.findElement(By.cssSelector("BODY")).getText().contains("Erros:  Já existe um utilizador registado com o mesmo e-mail"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

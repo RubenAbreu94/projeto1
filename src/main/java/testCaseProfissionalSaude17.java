@@ -85,7 +85,7 @@ public class testCaseProfissionalSaude17 {
         driver.findElement(By.id("inputInstitution")).clear();
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("O campo Instituição é obrigatório"));
+            assertTrue("Deveria aparecer uma mensagem a avisar que a instituição é obrigatória",driver.findElement(By.cssSelector("BODY")).getText().contains("O campo Instituição é obrigatório"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

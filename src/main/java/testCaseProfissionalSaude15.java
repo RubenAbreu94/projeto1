@@ -47,7 +47,8 @@ public class testCaseProfissionalSaude15 {
         driver.findElement(By.linkText("Perfil")).click();
 
         try {
-            assertEquals("Voltar atrás", driver.findElement(By.xpath("(//button[@type='button'])[4]")).getText());
+            assertTrue("Deveria existir um botão 'Voltar atrás'",driver.findElement(By.cssSelector("BODY")).getText().contains("Voltar atrás"));
+            //assertEquals("Voltar atrás", driver.findElement(By.xpath("(//button[@type='button'])[4]")).getText());
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

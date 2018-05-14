@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
@@ -43,11 +44,82 @@ public class testCaseProfissionalSaude18 {
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys("password_tp18_p");
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
-        driver.findElement(By.xpath("(//button[@type='button'])[9]")).click();
+
+        driver.findElement(By.linkText("Criar Novo Adolescente")).click();
+        driver.findElement(By.id("inputName")).clear();
+        driver.findElement(By.id("inputName")).sendKeys("Teste ProfSaude Dezasseis");
+        driver.findElement(By.id("inputEmail")).clear();
+        driver.findElement(By.id("inputEmail")).sendKeys("testeProf16@mail.com");
         driver.findElement(By.id("inputInstitution")).clear();
         driver.findElement(By.id("inputInstitution")).sendKeys("ESTG");
+        driver.findElement(By.xpath("//form[@id='form-add-teen']/div[5]/div/div")).click();
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-        driver.findElement(By.linkText("1")).click();
+        driver.findElement(By.linkText("Gestão de Adolescentes")).click();
+
+        Thread.sleep(1000);
+
+
+        WebElement table = driver.findElement(By.xpath("//table[@class='table']"));
+
+        List<WebElement> linhas = table.findElements(By.tagName("tr"));
+        WebElement linhaPretendida = null;
+        for (int i = 0; i<linhas.size();i++) {
+            if(linhas.get(i).getText().contains("testeProf16@mail.com")) {
+                linhaPretendida = linhas.get(i);
+                break;
+            }
+        }
+
+        linhaPretendida.findElement(By.cssSelector("button.btn.btn-primary")).click();
+
+        Thread.sleep(1000);
+
+
+
+
+        //driver.findElement(By.xpath("(//button[@type='button'])[9]")).click();
+        driver.findElement(By.id("inputInstitution")).clear();
+        driver.findElement(By.id("inputInstitution")).sendKeys("ESTG");
+
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+
+
+
+        driver.findElement(By.linkText("Gestão de Adolescentes")).click();
+
+        Thread.sleep(1000);
+
+
+
+
+        WebElement table2 = driver.findElement(By.xpath("//table[@class='table']"));
+
+        List<WebElement> linhas2 = table2.findElements(By.tagName("tr"));
+        WebElement linhaPretendida2 = null;
+        for (int i = 0; i<linhas2.size();i++) {
+            if(linhas2.get(i).getText().contains("testeProf16@mail.com")) {
+                linhaPretendida2 = linhas2.get(i);
+                break;
+            }
+        }
+
+        linhaPretendida2.findElement(By.cssSelector("tr:last-child #delete-button")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.cssSelector("button.btn.btn-danger")).click();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     @After
