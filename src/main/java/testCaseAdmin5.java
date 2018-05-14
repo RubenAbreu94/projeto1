@@ -35,7 +35,7 @@ public class testCaseAdmin5 {
     }
 
         @Test
-        public void testSadasd () throws Exception {
+        public void testAdmin5 () throws Exception {
         driver.get("http://159.65.29.212/login");
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys("password_tp18_p");

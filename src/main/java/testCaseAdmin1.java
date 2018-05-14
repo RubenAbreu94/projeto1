@@ -34,7 +34,7 @@ public class testCaseAdmin1 {
     }
 
     @Test
-    public void testAdmin() throws Exception {
+    public void testAdmin1() throws Exception {
         driver.get("http://159.65.29.212//login");
         driver.findElement(By.linkText("Login")).click();
         driver.findElement(By.linkText("Login")).click();

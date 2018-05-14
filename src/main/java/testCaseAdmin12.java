@@ -34,7 +34,7 @@ public class testCaseAdmin12 {
     }
 
     @Test
-    public void testSadasdasdasdasd() throws Exception {
+    public void testAdmin12() throws Exception {
         driver.get("http://159.65.29.212/login");
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys("password_tp18_p");

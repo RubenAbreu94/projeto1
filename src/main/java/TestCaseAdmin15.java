@@ -1,3 +1,4 @@
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
@@ -10,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class TestCaseAdmin14 {
+public class TestCaseAdmin15 {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -34,7 +35,7 @@ public class TestCaseAdmin14 {
     }
 
     @Test
-    public void testTestCaseAdmin14() throws Exception {
+    public void testCaseAdmin15() throws Exception {
         driver.get("http://159.65.29.212/login");
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys("password_tp18_p");
@@ -42,38 +43,41 @@ public class TestCaseAdmin14 {
         driver.findElement(By.id("email")).sendKeys("profissionaldesaude@mail.com");
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         driver.findElement(By.linkText("Fórum")).click();
-        driver.findElement(By.id("new_category_btn")).click();
 
+
+        driver.findElement(By.id("new_category_btn")).click();
         driver.findElement(By.name("name")).sendKeys("Automatizados");
         Thread.sleep(2000);
         driver.findElement(By.id("submit_category")).click();
-        driver.findElement(By.linkText("Automatizados")).click();
-        driver.findElement(By.id("new_discussion_btn")).click();
-        driver.findElement(By.id("title")).clear();
-        driver.findElement(By.id("title")).sendKeys("Teste");
 
-        driver.switchTo().frame(driver.findElement(By.id("body_ifr")));
-        driver.findElement(By.id("tinymce")).sendKeys("TesteTEEEEEEEEESTE sadasdsad");
-        driver.switchTo().defaultContent();
 
-        driver.findElement(By.id("submit_discussion")).click();
-        assertEquals("Nova Discussão criada com Sucesso.", driver.findElement(By.xpath("//div[@id='chatter']/div[2]/div")).getText());
-
-        //eliminar discussao
-        driver.findElement(By.cssSelector("p.chatter_delete_btn")).click();
+        driver.findElement(By.id("new_category_btn")).click();
+        new Select(driver.findElement(By.cssSelector("#new_category > #chatter_form_editor > div.row > div.col-md-4 > #chatter_category_id"))).selectByVisibleText("Automatizados");
+        driver.findElement(By.name("name")).clear();
+        driver.findElement(By.name("name")).sendKeys("TesteAuto05");
         Thread.sleep(2000);
-
-        //não consigo aceder a este botao
-        driver.findElement(By.cssSelector("button.btn btn-sm btn-danger pull-right delete_response")).click();
+        driver.findElement(By.id("submit_category")).click();
 
 
+        driver.findElement(By.linkText("TesteAuto05")).click();
+        driver.findElement(By.id("delete-button")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.cssSelector("button.btn.btn-danger")).click();
+        //driver.findElement(By.id("button-confirm-delete"));
 
-        //eliminar categoria
-        driver.findElement(By.cssSelector("i.chatter-back")).click();
+
+        try {
+            assertFalse("Ao tentar apagar uma sub-categoria esta não foi eliminada com sucesso",driver.findElement(By.xpath("BODY")).getText().contains("TesteAuto05"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+
         driver.findElement(By.linkText("Automatizados")).click();
         driver.findElement(By.id("delete-button")).click();
         Thread.sleep(1000);
         driver.findElement(By.cssSelector("button.btn.btn-danger")).click();
+
+
     }
 
     @After
@@ -118,6 +122,3 @@ public class TestCaseAdmin14 {
         }
     }
 }
-
-
-

@@ -34,7 +34,7 @@ public class testCaseAdmin4 {
   }
 
   @Test
-  public void testE04() throws Exception {
+  public void testCaseAdmin4() throws Exception {
     driver.get("http://159.65.29.212/login");
     driver.findElement(By.id("password")).clear();
     driver.findElement(By.id("password")).sendKeys("password_tp18_p");
@@ -46,6 +46,7 @@ public class testCaseAdmin4 {
 
     driver.findElement(By.id("new_category_btn")).click();
     driver.findElement(By.name("name")).sendKeys("Automatizados");
+    Thread.sleep(2000);
     driver.findElement(By.id("submit_category")).click();
 
 
@@ -53,6 +54,7 @@ public class testCaseAdmin4 {
     new Select(driver.findElement(By.cssSelector("#new_category > #chatter_form_editor > div.row > div.col-md-4 > #chatter_category_id"))).selectByVisibleText("Automatizados");
     driver.findElement(By.name("name")).clear();
     driver.findElement(By.name("name")).sendKeys("TesteAuto05");
+    Thread.sleep(2000);
     driver.findElement(By.id("submit_category")).click();
 
 
