@@ -30,6 +30,7 @@ public class testCaseLogout3 {
                 "drivers\\phantomjs.exe");
         driver = new ChromeDriver();
         baseUrl = "http://159.65.29.212/login";
+        driver.manage().window().setSize(new Dimension(1024,768));
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
@@ -58,7 +59,7 @@ public class testCaseLogout3 {
         driver.findElement(By.linkText("Logout")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Página Inicial"));
+            assertTrue("Dado que estava com a sessão de Professor e carreguei logout , então deveria ficar 'deslogado'",driver.findElement(By.cssSelector("BODY")).getText().contains("Página Inicial"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

@@ -27,6 +27,7 @@ public class testCaseLogin13 extends junit.framework.TestCase{
                 "drivers\\phantomjs.exe");
         driver = new ChromeDriver();
         baseUrl = "http://159.65.29.212";
+        driver.manage().window().setSize(new Dimension(1024,768));
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
@@ -38,7 +39,7 @@ public class testCaseLogin13 extends junit.framework.TestCase{
         driver.findElement(By.linkText("TeenPower")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Página Inicial"));
+            assertTrue("Dado que estou na teen power , quando clico TeenPower devia ser redirecionado para a página inicial do site",driver.findElement(By.cssSelector("BODY")).getText().contains("Página Inicial"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

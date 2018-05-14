@@ -27,6 +27,7 @@ public class testCaseLogin4 extends junit.framework.TestCase{
                 "drivers\\phantomjs.exe");
         driver = new ChromeDriver();
         baseUrl = "http://159.65.29.212/login";
+        driver.manage().window().setSize(new Dimension(1024,768));
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
@@ -41,7 +42,7 @@ public class testCaseLogin4 extends junit.framework.TestCase{
         driver.findElement(By.id("password")).sendKeys("");
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Iniciar Sessão"));
+            assertTrue("Ao sumbeter o login com as credenciais vazias deveria ficar na mesma página",driver.findElement(By.cssSelector("BODY")).getText().contains("Iniciar Sessão"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

@@ -30,6 +30,7 @@ public class testCaseLogin10 {
                 "drivers\\phantomjs.exe");
         driver = new ChromeDriver();
         baseUrl = "http://159.65.29.212/login";
+        driver.manage().window().setSize(new Dimension(1024,768));
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
@@ -45,7 +46,7 @@ public class testCaseLogin10 {
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.id("password")).getAttribute("validationMessage").contains("Preencha este campo"));
+            assertTrue("Ao deixar campos em brancos no login é suposto ser-me apresentada uma mensagem , não aconteceu",driver.findElement(By.id("password")).getAttribute("validationMessage").contains("Preencha este campo"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

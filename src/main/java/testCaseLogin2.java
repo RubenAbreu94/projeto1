@@ -29,6 +29,7 @@ public class testCaseLogin2 extends junit.framework.TestCase{
             "drivers\\phantomjs.exe");
     driver = new ChromeDriver();
     baseUrl = "http://159.65.29.212/login";
+    driver.manage().window().setSize(new Dimension(1024,768));
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
@@ -44,7 +45,7 @@ public class testCaseLogin2 extends junit.framework.TestCase{
     driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
     // Warning: verifyTextPresent may require manual changes
     try {
-      assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Total de Utilizadores"));
+      assertTrue("Após clicar na página de Gestão de utilizadores não me encontro na mesma",driver.findElement(By.cssSelector("BODY")).getText().contains("Total de Utilizadores"));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }

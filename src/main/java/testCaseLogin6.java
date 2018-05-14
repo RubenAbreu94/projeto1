@@ -30,6 +30,7 @@ public class testCaseLogin6 {
                 "drivers\\phantomjs.exe");
         driver = new ChromeDriver();
         baseUrl = "http://159.65.29.212/login";
+        driver.manage().window().setSize(new Dimension(1024,768));
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
@@ -44,7 +45,7 @@ public class testCaseLogin6 {
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Não existem registos com as credenciais fornecidas."));
+            assertTrue("Ao preencher os dados de login com credenciais erradas não recebi uma mensagem de erro",driver.findElement(By.cssSelector("BODY")).getText().contains("Não existem registos com as credenciais fornecidas."));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

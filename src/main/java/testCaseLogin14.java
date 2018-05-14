@@ -37,7 +37,7 @@ public class testCaseLogin14 extends junit.framework.TestCase{
     driver.findElement(By.linkText("Login")).click();
     // Warning: verifyTextPresent may require manual changes
     try {
-      assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Iniciar Sessão"));
+      assertTrue("Dado que estou na TeenPower e clico 'Login' deveria ser redirecionado para a página de inciar sessão",driver.findElement(By.cssSelector("BODY")).getText().contains("Iniciar Sessão"));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }

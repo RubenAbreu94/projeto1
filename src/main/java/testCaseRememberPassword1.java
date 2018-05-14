@@ -39,7 +39,7 @@ public class testCaseRememberPassword1 extends junit.framework.TestCase{
         driver.findElement(By.linkText("Esqueceu-se da Password?")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Recuperação de Password"));
+            assertTrue("Dado que cliquei 'Esqueceu-se da password?' deveria ser redirecionado para a página de recuperação de password",driver.findElement(By.cssSelector("BODY")).getText().contains("Recuperação de Password"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

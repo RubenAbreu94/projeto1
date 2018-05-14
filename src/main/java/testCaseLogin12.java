@@ -33,6 +33,7 @@ public class testCaseLogin12 {
         options.addArguments("–-lang=pt-pt");
         driver = new ChromeDriver(options);
         baseUrl = "http://159.65.29.212/login";
+        driver.manage().window().setSize(new Dimension(1024,768));
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
@@ -51,7 +52,7 @@ public class testCaseLogin12 {
 
         //System.out.println(driver.findElement(By.id("email")).getAttribute("validationMessage"));
         try {
-            assertTrue(driver.findElement(By.id("email")).getAttribute("validationMessage").contains("Preencha este campo"));
+            assertTrue("Ao deixar o campo email em branco deve-me ser apresentada uma mensagem a dizer para preencher esse mesmo campo",driver.findElement(By.id("email")).getAttribute("validationMessage").contains("Preencha este campo"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
