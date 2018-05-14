@@ -73,7 +73,7 @@ public class TestCaseAdmin14 {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-        
+
         //eliminar categoria
         driver.findElement(By.linkText("Automatizados")).click();
         driver.findElement(By.id("delete-button")).click();
