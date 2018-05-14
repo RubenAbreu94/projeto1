@@ -38,7 +38,7 @@ public class testCaseProfissionalSaude24 {
     }
 
     @Test
-    public void testTestCaseProfissionalSaude17() throws Exception {
+    public void testTestCaseProfissionalSaude24() throws Exception {
 
         driver.get("http://159.65.29.212/login");
         driver.findElement(By.id("email")).clear();

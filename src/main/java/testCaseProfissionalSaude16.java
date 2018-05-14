@@ -19,6 +19,7 @@ public class testCaseProfissionalSaude16 {
     private StringBuffer verificationErrors = new StringBuffer();
 
 
+
     @Before
     public void setUp() throws Exception {
         Logger.getLogger("").setLevel(Level.OFF);
