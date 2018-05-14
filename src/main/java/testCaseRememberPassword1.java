@@ -28,6 +28,7 @@ public class testCaseRememberPassword1 extends junit.framework.TestCase{
         driver = new ChromeDriver();
         baseUrl = "http://159.65.29.212";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
     }
 
     @Test
