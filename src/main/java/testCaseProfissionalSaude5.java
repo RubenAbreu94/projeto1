@@ -88,7 +88,7 @@ public class testCaseProfissionalSaude5 {
 
       try {
           isFileDownloaded(downloadPath,fileName);
-          Assert.assertTrue(fileName.contains(".xlsx"));
+          Assert.assertTrue("A funccionalidade não se encontra a funcionar corretamente ou não existem adolescentes para exportar",fileName.contains(".xlsx"));
           /*
           File file = new File(downloadPath + "\\" + fileName);
           System.out.println(downloadPath + fileName);

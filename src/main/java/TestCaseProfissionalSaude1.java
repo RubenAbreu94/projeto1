@@ -30,6 +30,7 @@ public class TestCaseProfissionalSaude1 {
                 "drivers\\phantomjs.exe");
         driver = new ChromeDriver();
         baseUrl = "http://159.65.29.212/login";
+        driver.manage().window().setSize(new Dimension(1024,768));
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
@@ -43,14 +44,14 @@ public class TestCaseProfissionalSaude1 {
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
+            assertTrue("Dado que logei como prof. de saúde , então deveria estar na página de Lista de Adolescentes",driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
         driver.findElement(By.xpath("(//button[@type='button'])[3]")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
+            assertTrue("Estou logado como Prof. Saúde , se cliquei no botão 'Lista de Adolescentes' deve-me ser apresentada a lista",driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
