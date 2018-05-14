@@ -47,7 +47,7 @@ public class testCaseProfissionalSaude10 {
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
+            assertTrue("Dado que iniciei conta como prof. de saude deveria-me ser apresentada a lista de adolescentes",driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
@@ -68,7 +68,7 @@ public class testCaseProfissionalSaude10 {
         try {
 
 
-            assertTrue(driver.findElement(By.cssSelector("div.title")).getText().contains("Whoops, looks like something went wrong."));
+            assertTrue("Dado que improtar um ficheiro com formato errado enquanto prof. de saude , deveria ser apresentado um erro",driver.findElement(By.cssSelector("div.title")).getText().contains("Whoops, looks like something went wrong."));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
