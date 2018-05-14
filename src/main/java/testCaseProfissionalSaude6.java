@@ -47,10 +47,18 @@ public class testCaseProfissionalSaude6 {
         //boolean botaoAtivo=assertTrue(driver.findElement(By.cssSelector("btn btn-primary mb-2")).isEnabled());
         if (rowCount ==1){
             try {
-                //assertTrue(driver.findElement(By.cssSelector("btn btn-primary mb-2")).getText().contains("Exportar Adoloscentes"));
-                //Assert.AreEqual(false, button.Enabled);
-                assertEquals(false,driver.findElement(By.cssSelector("button.btn.btn-primary.mb-2")).isEnabled());
-                //assertFalse(driver.findElement(By.cssSelector("button.btn.btn-primary.mb-2")).isEnabled());
+
+                assertFalse("Se não existem adolescentes para exportar então o botão 'Exportar Adolescentes' deveria estar oculto",driver.findElement(By.cssSelector("BODY")).getText().contains("Exportar Adolescentes"));
+
+
+                //assertEquals("Se não existem adolescentes na lista então o botão exportar deveria estar inativo ou oculto",false,driver.findElement(By.cssSelector("button.btn.btn-primary.mb-2")).isEnabled());
+
+                //assertEquals("Se não existem adolescentes na lista então o botão exportar deveria estar inativo ou oculto",false,driver.findElement(By.cssSelector("btn btn-primary mb-2 mr-2 float-right")).isEnabled());
+
+                //assertFalse("Se não existem adolescentes na lista então o botão exportar deveria estar inativo ou oculto",driver.findElement(By.cssSelector("button.btn.btn-primary.mb-2")).isEnabled());
+
+
+
 
             } catch (Error e) {
                 verificationErrors.append(e.toString());
