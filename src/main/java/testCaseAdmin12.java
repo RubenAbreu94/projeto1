@@ -94,7 +94,7 @@ public class testCaseAdmin12 {
         //assertEquals("Bem Vindo à TeenPower!", driver.findElement(By.cssSelector("div.card-body")).getText());
 
         try {
-            assertFalse(driver.findElement(By.cssSelector(".chatter_cat")).getText().contains("Automatizados"));
+            assertFalse("Dado que a categoria foi apagada então as dicussões nela presentes também deveriam ser apagadas",driver.findElement(By.cssSelector(".chatter_cat")).getText().contains("Automatizados"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

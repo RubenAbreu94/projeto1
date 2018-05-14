@@ -45,6 +45,7 @@ public class testCaseAdmin6 {
         driver.findElement(By.id("new_category_btn")).click();
 
         driver.findElement(By.name("name")).sendKeys("Automatizados");
+        Thread.sleep(2000);
         driver.findElement(By.id("submit_category")).click();
         driver.findElement(By.linkText("Automatizados")).click();
         driver.findElement(By.id("delete-button")).click();
@@ -52,11 +53,13 @@ public class testCaseAdmin6 {
         driver.findElement(By.cssSelector("button.btn.btn-danger")).click();
 
         try {
-            assertFalse(driver.findElement(By.cssSelector("BODY")).getText().contains("Automatizados"));
+            assertFalse("A categoria foi eliminada, logo  já não deveriam existir discussões ativas com essa categoria",driver.findElement(By.cssSelector("BODY")).getText().contains("Automatizados"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
     }
+
+
 
     @After
     public void tearDown() throws Exception {
