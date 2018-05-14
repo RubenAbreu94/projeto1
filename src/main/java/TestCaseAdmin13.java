@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
- public class  testCaseAdmin8 {
+public class TestCaseAdmin13 {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -34,7 +34,7 @@ import org.openqa.selenium.support.ui.Select;
     }
 
     @Test
-    public void testTestCaseAdmin8() throws Exception {
+    public void testTestCaseAdmin13() throws Exception {
         driver.get("http://159.65.29.212/login");
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys("password_tp18_p");
@@ -50,15 +50,13 @@ import org.openqa.selenium.support.ui.Select;
         driver.findElement(By.id("new_discussion_btn")).click();
         driver.findElement(By.id("title")).clear();
         driver.findElement(By.id("title")).sendKeys("Teste");
-
-
-        driver.switchTo().frame(driver.findElement(By.id("body_ifr")));
         //driver.findElement(By.cssSelector("tinymce.mce-content-body p")).click();
-        driver.findElement(By.id("tinymce")).sendKeys("TesteTEEEEEEEEESTE sadasdsad");
-        driver.switchTo().defaultContent();
+        //driver.findElement(By.cssSelector("body#tinymce.mce-content-body p")).sendKeys("TesteTEEEEEEEEESTE");
 
         driver.findElement(By.id("submit_discussion")).click();
         assertEquals("Nova Discussão criada com Sucesso.", driver.findElement(By.xpath("//div[@id='chatter']/div[2]/div")).getText());
+
+        driver.findElement(By.cssSelector("p.chatter_edit_btn")).click();
 
 
 
@@ -112,4 +110,5 @@ import org.openqa.selenium.support.ui.Select;
         }
     }
 }
+
 
