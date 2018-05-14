@@ -45,6 +45,7 @@ import org.openqa.selenium.support.ui.Select;
         driver.findElement(By.id("new_category_btn")).click();
 
         driver.findElement(By.name("name")).sendKeys("Automatizados");
+        Thread.sleep(2000);
         driver.findElement(By.id("submit_category")).click();
         driver.findElement(By.linkText("Automatizados")).click();
         driver.findElement(By.id("new_discussion_btn")).click();

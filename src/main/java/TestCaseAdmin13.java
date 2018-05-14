@@ -45,19 +45,30 @@ public class TestCaseAdmin13 {
         driver.findElement(By.id("new_category_btn")).click();
 
         driver.findElement(By.name("name")).sendKeys("Automatizados");
+        Thread.sleep(2000);
         driver.findElement(By.id("submit_category")).click();
         driver.findElement(By.linkText("Automatizados")).click();
         driver.findElement(By.id("new_discussion_btn")).click();
         driver.findElement(By.id("title")).clear();
         driver.findElement(By.id("title")).sendKeys("Teste");
-        //driver.findElement(By.cssSelector("tinymce.mce-content-body p")).click();
-        //driver.findElement(By.cssSelector("body#tinymce.mce-content-body p")).sendKeys("TesteTEEEEEEEEESTE");
+
+        driver.switchTo().frame(driver.findElement(By.id("body_ifr")));
+        driver.findElement(By.id("tinymce")).sendKeys("TesteTEEEEEEEEESTE sadasdsad");
+        driver.switchTo().defaultContent();
 
         driver.findElement(By.id("submit_discussion")).click();
         assertEquals("Nova Discussão criada com Sucesso.", driver.findElement(By.xpath("//div[@id='chatter']/div[2]/div")).getText());
 
+
+        //edit
         driver.findElement(By.cssSelector("p.chatter_edit_btn")).click();
 
+        driver.switchTo().frame(driver.findElement(By.id("body_ifr")));
+        driver.findElement(By.id("tinymce")).sendKeys("Teste : teste editado!");
+        driver.switchTo().defaultContent();
+
+        driver.findElement(By.xpath("//div[@id='chatter']/div[2]/div/div/div/ul/li/span/div[4]/div[3]/button")).click();
+        //fim edit
 
 
         driver.findElement(By.cssSelector("i.chatter-back")).click();
@@ -65,7 +76,6 @@ public class TestCaseAdmin13 {
         driver.findElement(By.id("delete-button")).click();
         Thread.sleep(1000);
         driver.findElement(By.cssSelector("button.btn.btn-danger")).click();
-
     }
 
     @After
