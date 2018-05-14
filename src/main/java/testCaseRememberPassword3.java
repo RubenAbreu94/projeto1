@@ -27,6 +27,7 @@ public class testCaseRememberPassword3 extends junit.framework.TestCase{
             "drivers\\phantomjs.exe");
     driver = new ChromeDriver();
     baseUrl = "http://159.65.29.212/login";
+    driver.manage().window().setSize(new Dimension(1024,768));
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
@@ -39,7 +40,7 @@ public class testCaseRememberPassword3 extends junit.framework.TestCase{
     driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
     // Warning: verifyTextPresent may require manual changes
     try {
-      assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Não encontramos nenhum utilizador com esse e-mail."));
+      assertTrue("Se estou a tentar recuperar conta e o email não é válido , devo receber uma mensagem que me explique o mesmo",driver.findElement(By.cssSelector("BODY")).getText().contains("Não encontramos nenhum utilizador com esse e-mail."));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }

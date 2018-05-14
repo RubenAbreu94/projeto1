@@ -27,6 +27,7 @@ public class testCaseRememberPassword4 extends junit.framework.TestCase{
             "drivers\\phantomjs.exe");
     driver = new ChromeDriver();
     baseUrl = "http://159.65.29.212/login";
+    driver.manage().window().setSize(new Dimension(1024,768));
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
@@ -39,7 +40,7 @@ public class testCaseRememberPassword4 extends junit.framework.TestCase{
     driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
     // Warning: verifyTextPresent may require manual changes
     try {
-      assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Enviamos-lhe um email para recuperar a sua password!"));
+      assertTrue("Se estou a recuperar conta e preencho os campos de forma válida então devo ser notificado que o processo está a decorrer com sucesso(foi enviado um email)",driver.findElement(By.cssSelector("BODY")).getText().contains("Enviamos-lhe um email para recuperar a sua password!"));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }

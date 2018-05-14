@@ -27,6 +27,7 @@ public class testCaseRememberPassword2 extends junit.framework.TestCase{
             "drivers\\phantomjs.exe");
     driver = new ChromeDriver();
     baseUrl = "http://159.65.29.212/login";
+    driver.manage().window().setSize(new Dimension(1024,768));
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
@@ -38,7 +39,7 @@ public class testCaseRememberPassword2 extends junit.framework.TestCase{
     driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
     // Warning: verifyTextPresent may require manual changes
     try {
-      assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("O campo de email é obrigatório."));
+      assertTrue("Se estou a tentar recuperar conta e não preencho o campo email , devo receber uma mensagem a dizer que esse campo é obrigatorio.Este campo deve ser apresentado em Português",driver.findElement(By.cssSelector("BODY")).getText().contains("O campo de email é obrigatório."));
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
