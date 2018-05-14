@@ -60,7 +60,7 @@ public class testCaseProfissionalSaude13 {
         driver.findElement(By.xpath("//button[@type='submit']")).click();
 
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("TESTE14@mail.com"));
+            assertTrue("Foi criado um utilizador que não se verifica estar agora presente na lista de adolescentes",driver.findElement(By.cssSelector("BODY")).getText().contains("TESTE14@mail.com"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
