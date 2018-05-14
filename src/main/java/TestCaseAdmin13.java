@@ -63,11 +63,12 @@ public class TestCaseAdmin13 {
         //edit
         driver.findElement(By.cssSelector("p.chatter_edit_btn")).click();
 
-        driver.switchTo().frame(driver.findElement(By.id("body_ifr")));
+        driver.switchTo().frame(driver.findElement(By.id("post-edit-17_ifr")));
         driver.findElement(By.id("tinymce")).sendKeys("Teste : teste editado!");
         driver.switchTo().defaultContent();
 
-        driver.findElement(By.xpath("//div[@id='chatter']/div[2]/div/div/div/ul/li/span/div[4]/div[3]/button")).click();
+        //driver.findElement(By.cssSelector("btn.btn-success pull-right update_chatter_edit"));
+        driver.findElement(By.xpath("//div[@id='chatter']/div[4]/div/div/div/ul/li/span/div[4]/div[3]/button")).click();
         //fim edit
 
 
