@@ -44,14 +44,14 @@ public class testCaseProfissionalSaude8 {
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Funcionalidades"));
+            assertTrue("Dado que inicei conta com prof. saude deveria-me ser apresentada a pag. de lista de adolescentes",driver.findElement(By.cssSelector("BODY")).getText().contains("Funcionalidades"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
         driver.findElement(By.linkText("Fórum")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Nova Categoria"));
+            assertTrue("Dado que cliquei no botão 'Fórum' então era suposto estar na página em que me é possivel criar uma nova categoria",driver.findElement(By.cssSelector("BODY")).getText().contains("Nova Categoria"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
