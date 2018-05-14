@@ -50,8 +50,12 @@ public class  testCaseAdmin8  {
         driver.findElement(By.id("new_discussion_btn")).click();
         driver.findElement(By.id("title")).clear();
         driver.findElement(By.id("title")).sendKeys("Teste");
+
+
+        driver.switchTo().frame(driver.findElement(By.id("body_ifr")));
         //driver.findElement(By.cssSelector("tinymce.mce-content-body p")).click();
-        //driver.findElement(By.cssSelector("body#tinymce.mce-content-body p")).sendKeys("TesteTEEEEEEEEESTE");
+        driver.findElement(By.id("tinymce")).sendKeys("TesteTEEEEEEEEESTE sadasdsad");
+        driver.switchTo().defaultContent();
 
         driver.findElement(By.id("submit_discussion")).click();
         assertEquals("Nova Discussão criada com Sucesso.", driver.findElement(By.xpath("//div[@id='chatter']/div[2]/div")).getText());
