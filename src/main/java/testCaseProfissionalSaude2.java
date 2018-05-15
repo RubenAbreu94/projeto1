@@ -52,7 +52,7 @@ public class testCaseProfissionalSaude2 {
         driver.findElement(By.cssSelector("button.btn.btn-secondary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue("Dado que estou na página Lista de Adolescentes e clico no botão 'Criar novo Adolescente' e de seguida clico no botão 'Lista de Adolescentes' então é suposto estar na página",driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
+            assertTrue("Dado que iniciei conta como prof. de sáude e estou na Área de Gestão de Adolescentes quando clico no botão 'Criar novo Adolescente' e de seguida clico no botão 'Lista de Adolescentes' então é suposto estar na página Lista de Adolescentes",driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

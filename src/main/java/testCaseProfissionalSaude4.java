@@ -48,10 +48,10 @@ public class testCaseProfissionalSaude4 {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-        driver.findElement(By.xpath("(//button[@type='button'])[4]")).click();
+        driver.findElement(By.xpath("(//button[@type='button'])[3]")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Formulário de Criação de Adolescentes"));
+            assertTrue("Dado que iniciei conta como prof. de sáude e estou na Área de Gestão de Adolescentes quando clico no botão 'Criar novo Adolescente' então é suposto estar na página Formulário de Criação de Adolescentes",driver.findElement(By.cssSelector("BODY")).getText().contains("Formulário de Criação de Adolescentes"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
