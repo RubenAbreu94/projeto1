@@ -48,7 +48,7 @@ public class testCaseAdmin3 {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-        driver.findElement(By.xpath("(//button[@type='button'])[4]")).click();
+        driver.findElement(By.xpath("(//button[@type='button'])[3]")).click();
         driver.findElement(By.id("inputName")).clear();
         driver.findElement(By.id("inputName")).sendKeys("João Abreu");
         driver.findElement(By.id("inputEmail")).clear();
