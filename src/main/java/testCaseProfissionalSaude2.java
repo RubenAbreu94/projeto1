@@ -42,14 +42,14 @@ public class testCaseProfissionalSaude2 {
         driver.findElement(By.id("password")).sendKeys("password_tp18_p");
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
-        driver.findElement(By.xpath("(//button[@type='button'])[4]")).click();
+        driver.findElement(By.xpath("(//button[@type='button'])[3]")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
             assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Formulário de Criação de Adolescentes"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-        driver.findElement(By.xpath("(//button[@type='button'])[3]")).click();
+        driver.findElement(By.cssSelector("button.btn.btn-secondary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
             assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));

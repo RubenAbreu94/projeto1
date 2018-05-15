@@ -49,14 +49,15 @@ public class testCaseAdmin2 {
             verificationErrors.append(e.toString());
         }
         driver.findElement(By.linkText("Mensagens")).click();
+        driver.findElement(By.cssSelector("button.btn.btn-success")).click();
+        driver.findElement(By.xpath("(//button[@type='button'])[5]")).click();
+        driver.findElement(By.id("id=btn-send")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Procurar"));
+            assertTrue(driver.findElement(By.id("//ul[@id='messages-wrapper']/li[5]/div[2]")).getText().contains("Olá"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-
-        System.out.println("A funcionalidade das mensagens não está ativa!");
     }
 
     @After
