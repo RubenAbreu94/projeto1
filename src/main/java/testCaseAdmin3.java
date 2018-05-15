@@ -59,7 +59,7 @@ public class testCaseAdmin3 {
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Sucesso! Foi criado um utilizador com o nome: João Abreu."));
+            assertTrue("Dado que iniciei conta como Administrador quando clico no botão 'Criar Novo Utilizador' e crio um utilizador então é suposto o utilizador ser criado com sucesso.)",driver.findElement(By.cssSelector("BODY")).getText().contains("Sucesso! Foi criado um utilizador com o nome: João Abreu."));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
