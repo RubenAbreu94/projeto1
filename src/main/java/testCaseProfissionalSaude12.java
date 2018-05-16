@@ -42,6 +42,22 @@ public class testCaseProfissionalSaude12 {
         driver.findElement(By.id("password")).sendKeys("password_tp18_p");
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
+        try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+        // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
+        driver.findElement(By.linkText("Criar Novo Adolescente")).click();
+        driver.findElement(By.id("inputName")).clear();
+        driver.findElement(By.id("inputName")).sendKeys("Rúben Emanuel Gonçalves Abreu");
+        driver.findElement(By.id("inputEmail")).clear();
+        driver.findElement(By.id("inputEmail")).sendKeys("TESTE14@mail.com");
+        driver.findElement(By.id("inputInstitution")).clear();
+        driver.findElement(By.id("inputInstitution")).sendKeys("ESSLei");
+        driver.findElement(By.xpath("//form[@id='form-add-teen']/div[5]/div/div[2]/label")).click();
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        // Warning: verifyTextPresent may require manual changes
         String USER_EMAIL=driver.findElement(By.cssSelector("table.table tr:last-child td:nth-child(2)")).getText();
 
         driver.findElement(By.cssSelector("table.table tr:last-child #delete-button")).click();
