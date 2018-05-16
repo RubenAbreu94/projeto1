@@ -35,8 +35,7 @@ public class testCaseProfissionalSaude30 {
 
     @Test
     public void testTestCaseProfissionalSaude30() throws Exception {
-        driver.get(baseUrl + "/");
-        driver.findElement(By.linkText("Login")).click();
+        driver.get("http://159.65.29.212/login");
         driver.findElement(By.id("email")).clear();
         driver.findElement(By.id("email")).sendKeys("testeautoPerfis@mail.com");
         driver.findElement(By.id("password")).clear();
