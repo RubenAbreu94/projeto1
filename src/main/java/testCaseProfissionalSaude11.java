@@ -54,7 +54,7 @@ public class testCaseProfissionalSaude11 {
         Thread.sleep(3000);
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
+            assertTrue("Dado que iniciei conta com prof. de saude e estou na página da Lista de Adolescentes, botão 'Eliminar' quando clico em cancelar volta para a página da Lista de Adolescentes",driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
