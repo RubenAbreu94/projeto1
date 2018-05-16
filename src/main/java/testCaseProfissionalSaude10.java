@@ -68,7 +68,7 @@ public class testCaseProfissionalSaude10 {
         try {
 
 
-            assertTrue("Dado que improtar um ficheiro com formato errado enquanto prof. de saude , deveria ser apresentado um erro",driver.findElement(By.cssSelector("div.title")).getText().contains("Whoops, looks like something went wrong."));
+            assertTrue("Se importar um ficheiro com um formato errado deveria ser apresentado uma mensagem de erro",driver.findElement(By.cssSelector("BODY")).getText().contains("O ficheiro selecionado não tem a estrutura correta. Por favor contacte o Administrador para que este lhe forneça o template."));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
