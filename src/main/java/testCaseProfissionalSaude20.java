@@ -64,7 +64,7 @@ public class testCaseProfissionalSaude20 {
         }
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("ESSLei"));
+            assertTrue("Dado que iniciei conta com prof. de saude e estou na página da Lista de Adolescentes quando clico no botão 'Editar' e não efetuo nenhuma alteração no Formulário de Edição de Utilizador e submeto o botão 'Cancelar' verifico que não houve alterações",driver.findElement(By.cssSelector("BODY")).getText().contains("ESSLei"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
