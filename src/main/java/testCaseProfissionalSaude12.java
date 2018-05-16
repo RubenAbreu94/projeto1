@@ -60,7 +60,7 @@ public class testCaseProfissionalSaude12 {
         // Warning: verifyTextPresent may require manual changes
         String USER_EMAIL=driver.findElement(By.cssSelector("table.table tr:last-child td:nth-child(2)")).getText();
 
-        driver.findElement(By.cssSelector("table.table tr:last-child #delete-button")).click();
+        driver.findElement(By.id("delete-button")).click();
         Thread.sleep(3000);
         try {
             assertTrue("Dado que iniciei conta com prof. de saude e estou na página da Lista de Adolescentes quando clico no botão 'Eliminar' verifico que aparece a mensagem de confirmação com o nome do Utilizador",driver.findElement(By.cssSelector("div.modal-body")).getText().contains("Tem a certeza que pretende eliminar o utilizador Rúben Emanuel Gonçalves Abreu?"));
@@ -68,7 +68,7 @@ public class testCaseProfissionalSaude12 {
             verificationErrors.append(e.toString());
         }
 
-        driver.findElement(By.cssSelector("table.table tr:last-child #delete-button")).click();
+        driver.findElement(By.id("delete-button")).click();
         Thread.sleep(3000);
         driver.findElement(By.cssSelector("button[type=submit]")).click();
     }

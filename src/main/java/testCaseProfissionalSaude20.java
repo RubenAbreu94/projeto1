@@ -73,7 +73,7 @@ public class testCaseProfissionalSaude20 {
             verificationErrors.append(e.toString());
         }
 
-        driver.findElement(By.cssSelector("table.table tr:last-child #delete-button")).click();
+        driver.findElement(By.id("delete-button")).click();
         Thread.sleep(3000);
         driver.findElement(By.cssSelector("button[type=submit]")).click();
     }

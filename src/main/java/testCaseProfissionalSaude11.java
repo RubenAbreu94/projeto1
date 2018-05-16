@@ -60,7 +60,7 @@ public class testCaseProfissionalSaude11 {
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         driver.findElement(By.xpath("(//button[@type='button'])[9]")).click();
         driver.findElement(By.cssSelector("button.btn.btn-secundary")).click();
-        driver.findElement(By.cssSelector("table.table tr:last-child #delete-button")).click();
+        driver.findElement(By.id("delete-button")).click();
         Thread.sleep(3000);
         driver.findElement(By.cssSelector("button.btn.btn-default")).click();
         Thread.sleep(3000);
@@ -71,7 +71,7 @@ public class testCaseProfissionalSaude11 {
             verificationErrors.append(e.toString());
         }
 
-        driver.findElement(By.cssSelector("table.table tr:last-child #delete-button")).click();
+        driver.findElement(By.id("delete-button")).click();
         Thread.sleep(3000);
         driver.findElement(By.cssSelector("button[type=submit]")).click();
     }
