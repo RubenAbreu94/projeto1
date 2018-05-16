@@ -47,12 +47,10 @@ public class testCaseProfissionalSaude12 {
         driver.findElement(By.cssSelector("table.table tr:last-child #delete-button")).click();
         Thread.sleep(3000);
         try {
-            assertTrue(driver.findElement(By.cssSelector("div.modal-body")).getText().contains("Tem a certeza que pretende eliminar o utilizador Rúben Emanuel Gonçalves Abreu?"));
+            assertTrue("Dado que iniciei conta com prof. de saude e estou na página da Lista de Adolescentes quando clico no botão 'Eliminar' verifico que aparece a mensagem de confirmação com o nome do Utilizador",driver.findElement(By.cssSelector("div.modal-body")).getText().contains("Tem a certeza que pretende eliminar o utilizador Rúben Emanuel Gonçalves Abreu?"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-
-        System.out.println("Não contêm o nome do Utilizador na mensagem de eliminar!");
     }
 
     @After
