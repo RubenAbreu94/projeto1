@@ -67,6 +67,10 @@ public class testCaseProfissionalSaude12 {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
+
+        driver.findElement(By.cssSelector("table.table tr:last-child #delete-button")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.cssSelector("button[type=submit]")).click();
     }
 
     @After

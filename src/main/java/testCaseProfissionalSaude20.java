@@ -44,16 +44,20 @@ public class testCaseProfissionalSaude20 {
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Rúben Emanuel Gonçalves Abreu"));
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-        // Warning: verifyTextPresent may require manual changes
-        try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("ESSLei"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
+        // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
+        driver.findElement(By.linkText("Criar Novo Adolescente")).click();
+        driver.findElement(By.id("inputName")).clear();
+        driver.findElement(By.id("inputName")).sendKeys("Rúben Emanuel Gonçalves Abreu");
+        driver.findElement(By.id("inputEmail")).clear();
+        driver.findElement(By.id("inputEmail")).sendKeys("TESTE14@mail.com");
+        driver.findElement(By.id("inputInstitution")).clear();
+        driver.findElement(By.id("inputInstitution")).sendKeys("ESSLei");
+        driver.findElement(By.xpath("//form[@id='form-add-teen']/div[5]/div/div[2]/label")).click();
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
         driver.findElement(By.xpath("(//button[@type='button'])[9]")).click();
         driver.findElement(By.cssSelector("button.btn.btn-secundary")).click();
         // Warning: verifyTextPresent may require manual changes
@@ -68,6 +72,10 @@ public class testCaseProfissionalSaude20 {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
+
+        driver.findElement(By.cssSelector("table.table tr:last-child #delete-button")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.cssSelector("button[type=submit]")).click();
     }
 
     @After
