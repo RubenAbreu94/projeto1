@@ -51,7 +51,7 @@ public class testCaseProfissionalSaude3 {
         driver.findElement(By.cssSelector("button.btn.btn-secondary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Importação de Utilizadores"));
+            assertTrue("Dado que iniciei conta como prof. de sáude e estou na Área de Gestão de Adolescentes quando clico no botão 'Importar Adolescentes' então é suposto estar na página Importação de Utilizadores",driver.findElement(By.cssSelector("BODY")).getText().contains("Importação de Utilizadores"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
