@@ -59,7 +59,7 @@ public class testCaseProfissionalSaude23 {
         WebElement uploadElement = driver.findElement(By.name("file"));
         uploadElement.sendKeys(ficherioImportar);
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
-
+        Thread.sleep(1000);
         driver.findElement(By.id("selectAll")).click();
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
 

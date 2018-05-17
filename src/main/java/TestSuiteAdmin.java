@@ -5,13 +5,12 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class TestSuiteAdmin extends junit.framework.TestCase {
     private WebDriver driver;
@@ -127,6 +126,8 @@ public class TestSuiteAdmin extends junit.framework.TestCase {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
+
+
         driver.findElement(By.xpath("(//button[@type='button'])[3]")).click();
         driver.findElement(By.id("inputName")).clear();
         driver.findElement(By.id("inputName")).sendKeys("João Abreu");
@@ -138,10 +139,12 @@ public class TestSuiteAdmin extends junit.framework.TestCase {
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue("Dado que iniciei conta como Administrador quando clico no botão 'Criar Novo Utilizador' e crio um utilizador então é suposto o utilizador ser criado com sucesso.)",driver.findElement(By.cssSelector("BODY")).getText().contains("Sucesso! Foi criado um utilizador com o nome: João Abreu."));
+            assertTrue("Dado que iniciei conta como Administrador quando clico no botão 'Criar Novo Utilizador' e crio um utilizador então é suposto receber uma mensagem em como o utilizador foi criado com sucesso.)",driver.findElement(By.cssSelector("BODY")).getText().contains("Sucesso"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
+
+
     }
 
 
@@ -746,7 +749,6 @@ public class TestSuiteAdmin extends junit.framework.TestCase {
 
 
     }
-
 
 
 
