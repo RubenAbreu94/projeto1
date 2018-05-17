@@ -44,12 +44,23 @@ public class testCaseProfissionalSaude21 {
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Rúben Emanuel Gonçalves Abreu"));
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
+        // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
+        driver.findElement(By.linkText("Criar Novo Adolescente")).click();
+        driver.findElement(By.id("inputName")).clear();
+        driver.findElement(By.id("inputName")).sendKeys("Rúben Emanuel Gonçalves Abreu");
+        driver.findElement(By.id("inputEmail")).clear();
+        driver.findElement(By.id("inputEmail")).sendKeys("TESTE14@mail.com");
+        driver.findElement(By.id("inputInstitution")).clear();
+        driver.findElement(By.id("inputInstitution")).sendKeys("ESSLei");
+        driver.findElement(By.xpath("//form[@id='form-add-teen']/div[5]/div/div[2]/label")).click();
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
+            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Rúben Emanuel Gonçalves Abreu"));
             assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("ESSLei"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
@@ -64,15 +75,15 @@ public class testCaseProfissionalSaude21 {
         // Warning: verifyTextPresent may require manual changes
         try {
             assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Rúben Emanuel Gonçalves Radamanto"));
+            assertTrue("Dado que iniciei conta com prof. de saude e estou na página da Lista de Adolescentes quando clico no botão 'Editar' e altero as informações no Formulário de Edição de Utilizador e submeto o botão 'Confirmar' verifico que as alterações foram feitas",driver.findElement(By.cssSelector("BODY")).getText().contains("ESTG"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-        // Warning: verifyTextPresent may require manual changes
-        try {
-            assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("ESTG"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
+
+
+        driver.findElement(By.id("delete-button")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.cssSelector("button[type=submit]")).click();
     }
 
     @After
