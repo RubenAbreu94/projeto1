@@ -63,6 +63,10 @@ public class testCaseAdmin3 {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
+
+        driver.findElement(By.id("delete-button")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.cssSelector("button[type=submit]")).click();
     }
 
     @After
