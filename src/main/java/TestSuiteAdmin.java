@@ -634,7 +634,8 @@ public class TestSuiteAdmin extends junit.framework.TestCase {
         //edit
         driver.findElement(By.cssSelector("p.chatter_edit_btn")).click();
 
-        driver.switchTo().frame(driver.findElement(By.id("post-edit-17_ifr")));
+        driver.switchTo().frame(driver.findElement(By.cssSelector(".mce-edit-area.mce-container.mce-panel.mce-stack-layout-item.mce-last iframe")));
+        driver.findElement(By.id("tinymce")).clear();
         driver.findElement(By.id("tinymce")).sendKeys("Teste : teste editado!");
         driver.switchTo().defaultContent();
 
@@ -649,7 +650,6 @@ public class TestSuiteAdmin extends junit.framework.TestCase {
         Thread.sleep(1000);
         driver.findElement(By.cssSelector("button.btn.btn-danger")).click();
     }
-
 
     @Test
     public void testTestCaseAdmin14() throws Exception {
