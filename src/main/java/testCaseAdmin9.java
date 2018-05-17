@@ -16,6 +16,7 @@ public class testCaseAdmin9 {
     private String baseUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
+    private String ficherioImportar = System.getProperty("user.dir") + "\\Uploads\\Admin_Role_5_Instituicoes.csv";
 
     @Before
     public void setUp() throws Exception {
@@ -49,22 +50,15 @@ public class testCaseAdmin9 {
             verificationErrors.append(e.toString());
         }
         driver.findElement(By.cssSelector("button.btn.btn-secondary")).click();
-        driver.findElement(By.name("file")).clear();
-
-
-
-
-        //// ABREU , NÃO PODES METER UM CAMINHO ABSOLUTO AQUI  , VAI VER COMO FIZ NO OUTRO TESTE DE IMPORTAR
-
-        driver.findElement(By.name("file")).sendKeys("C:\\Users\\Ruben Abreu\\Desktop\\Admin_Role_5_Instituicoes.csv");
-
-
-
-
-
+        WebElement uploadElement = driver.findElement(By.name("file"));
+        uploadElement.sendKeys(ficherioImportar);
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
+
         driver.findElement(By.id("selectAll")).click();
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
+
+        Thread.sleep(1000);
+
         // Warning: verifyTextPresent may require manual changes
         try {
             assertTrue("Após importar com sucesso deveria ser mostrada uma mensagem",driver.findElement(By.cssSelector("BODY")).getText().contains("Sucesso! Foram enviados 9 emails de confirmação."));
