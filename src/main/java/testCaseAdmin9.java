@@ -77,6 +77,10 @@ public class testCaseAdmin9 {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
+
+        driver.findElement(By.xpath("button[@type='button'])[9]")).click();
+
+
         driver.findElement(By.linkText("Administrator")).click();
         driver.findElement(By.linkText("Logout")).click();
         // Warning: verifyTextPresent may require manual changes
