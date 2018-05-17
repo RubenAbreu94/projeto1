@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,6 +49,8 @@ public class testCaseAdmin3 {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
+
+
         driver.findElement(By.xpath("(//button[@type='button'])[3]")).click();
         driver.findElement(By.id("inputName")).clear();
         driver.findElement(By.id("inputName")).sendKeys("João Abreu");
@@ -59,18 +62,33 @@ public class testCaseAdmin3 {
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
-            assertTrue("Dado que iniciei conta como Administrador quando clico no botão 'Criar Novo Utilizador' e crio um utilizador então é suposto o utilizador ser criado com sucesso.)",driver.findElement(By.cssSelector("BODY")).getText().contains("Sucesso! Foi criado um utilizador com o nome: João Abreu."));
+            assertTrue("Dado que iniciei conta como Administrador quando clico no botão 'Criar Novo Utilizador' e crio um utilizador então é suposto receber uma mensagem em como o utilizador foi criado com sucesso.)",driver.findElement(By.cssSelector("BODY")).getText().contains("Sucesso"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
 
-        driver.findElement(By.id("delete-button")).click();
-        Thread.sleep(3000);
-        driver.findElement(By.cssSelector("button[type=submit]")).click();
+
     }
 
     @After
     public void tearDown() throws Exception {
+
+        driver.findElement(By.linkText("Gestão de Utilizadores")).click();
+        WebElement table = driver.findElement(By.xpath("//table[@class='table']"));
+
+        List<WebElement> linhas = table.findElements(By.tagName("tr"));
+        WebElement linhaPretendida = null;
+        for (int i = 0; i<linhas.size();i++) {
+            if(linhas.get(i).getText().contains("joaoabreu@mail.com")) {
+                linhaPretendida = linhas.get(i);
+                break;
+            }
+        }
+
+        linhaPretendida.findElement(By.cssSelector("tr:last-child #delete-button")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.cssSelector("button.btn.btn-danger")).click();
+
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
