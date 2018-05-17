@@ -63,7 +63,8 @@ public class TestCaseAdmin13 {
         //edit
         driver.findElement(By.cssSelector("p.chatter_edit_btn")).click();
 
-        driver.switchTo().frame(driver.findElement(By.id("post-edit-17_ifr")));
+        driver.switchTo().frame(driver.findElement(By.cssSelector(".mce-edit-area.mce-container.mce-panel.mce-stack-layout-item.mce-last iframe")));
+        driver.findElement(By.id("tinymce")).clear();
         driver.findElement(By.id("tinymce")).sendKeys("Teste : teste editado!");
         driver.switchTo().defaultContent();
 
