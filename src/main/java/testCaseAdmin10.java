@@ -16,6 +16,7 @@ public class testCaseAdmin10 {
     private String baseUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
+    private String ficherioImportar = System.getProperty("user.dir") + "\\Uploads\\Admin_Role_5_Instituicoes.csv";
 
     @Before
     public void setUp() throws Exception {
@@ -48,12 +49,19 @@ public class testCaseAdmin10 {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
+
+        driver.findElement(By.xpath(" //button[@type='button'])[11]")).click();
+
         driver.findElement(By.cssSelector("button.btn.btn-secondary")).click();
-        driver.findElement(By.name("file")).clear();
-        driver.findElement(By.name("file")).sendKeys("C:\\Users\\Ruben Abreu\\Desktop\\Admin_Role_5_Instituicoes.csv");
+        //driver.findElement(By.name("file")).click();
+        WebElement uploadElement = driver.findElement(By.name("file"));
+        uploadElement.sendKeys(ficherioImportar);
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
+
         driver.findElement(By.id("selectAll")).click();
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
+
+        Thread.sleep(1000);
         // Warning: verifyTextPresent may require manual changes
         try {
             assertTrue("Apos importar com sucesso deveria ser mostrada uma mensagem de sucesso",driver.findElement(By.cssSelector("BODY")).getText().contains("Sucesso! Foram enviados 9 emails de confirmação."));
@@ -73,6 +81,7 @@ public class testCaseAdmin10 {
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
+
         driver.findElement(By.linkText("Administrator")).click();
         driver.findElement(By.linkText("Logout")).click();
         // Warning: verifyTextPresent may require manual changes
