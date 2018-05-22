@@ -99,21 +99,12 @@ public class testCaseAdmin10 {
         // Warning: verifyTextPresent may require manual changes
         try {
             assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
-        // Warning: verifyTextPresent may require manual changes
-        try {
             assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("jsilva@mail.com"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
-        // Warning: verifyTextPresent may require manual changes
-        try {
             assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("IST PT LEI"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
+        
     }
 
     @After

@@ -50,9 +50,6 @@ public class testCaseAdmin9 {
             verificationErrors.append(e.toString());
         }
 
-        driver.findElement(By.xpath(" //button[@type='button'])[9]")).click();
-
-        driver.findElement(By.cssSelector("button.btn.btn-secondary")).click();
         //driver.findElement(By.name("file")).click();
         WebElement uploadElement = driver.findElement(By.name("file"));
         uploadElement.sendKeys(ficherioImportar);
@@ -60,9 +57,7 @@ public class testCaseAdmin9 {
 
         driver.findElement(By.id("selectAll")).click();
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
-
         Thread.sleep(1000);
-
         // Warning: verifyTextPresent may require manual changes
         try {
             assertTrue("Após importar com sucesso deveria ser mostrada uma mensagem",driver.findElement(By.cssSelector("BODY")).getText().contains("Sucesso! Foram enviados 9 emails de confirmação."));
@@ -83,6 +78,9 @@ public class testCaseAdmin9 {
             verificationErrors.append(e.toString());
         }
 
+        driver.findElement(By.xpath("button[@type='button'])[9]")).click();
+
+
         driver.findElement(By.linkText("Administrator")).click();
         driver.findElement(By.linkText("Logout")).click();
         // Warning: verifyTextPresent may require manual changes
@@ -100,21 +98,12 @@ public class testCaseAdmin9 {
         // Warning: verifyTextPresent may require manual changes
         try {
             assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
-        // Warning: verifyTextPresent may require manual changes
-        try {
             assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("jsilva@mail.com"));
-        } catch (Error e) {
-            verificationErrors.append(e.toString());
-        }
-        // Warning: verifyTextPresent may require manual changes
-        try {
             assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("IST PT LEI"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
+
     }
 
     @After
