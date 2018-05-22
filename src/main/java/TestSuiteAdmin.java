@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 import static org.junit.Assert.*;
 
-public class TestSuiteAdmin extends junit.framework.TestCase {
+public class testSuiteAdmin extends junit.framework.TestCase {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
