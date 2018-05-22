@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class testCaseProfissionalSaude25 {
+public class testCaseProfissionalSaude25 extends junit.framework.TestCase{
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;

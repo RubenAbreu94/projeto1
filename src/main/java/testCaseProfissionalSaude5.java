@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 
 
 
-public class testCaseProfissionalSaude5 {
+public class testCaseProfissionalSaude5 extends junit.framework.TestCase{
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;

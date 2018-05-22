@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 import static org.junit.Assert.*;
 
-public class testCaseProfissionalSaude12 {
+public class testCaseProfissionalSaude12 extends junit.framework.TestCase{
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
