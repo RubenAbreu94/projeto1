@@ -18,6 +18,14 @@ public class TestSuit {
         suite.addTestSuite(testCaseLogin2.class);
         suite.addTestSuite(testCaseLogin4.class);
         suite.addTestSuite(testCaseLogin5.class);
+        suite.addTestSuite(testCaseLogin5.class);
+        suite.addTestSuite(testCaseLogin5.class);
+        suite.addTestSuite(testCaseLogin5.class);
+        suite.addTestSuite(testCaseLogin5.class);
+        suite.addTestSuite(testCaseLogin5.class);
+        suite.addTestSuite(testCaseLogin5.class);
+        suite.addTestSuite(testCaseLogin5.class);
+        suite.addTestSuite(testCaseLogin5.class);
         suite.addTestSuite(testCaseAdmin0.class);
         suite.addTestSuite(testCaseLogout0.class);
         suite.addTestSuite(testCaseOrtografia0.class);

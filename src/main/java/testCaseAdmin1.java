@@ -34,7 +34,7 @@ public class testCaseAdmin1 extends junit.framework.TestCase {
     }
 
     @Test
-    public void testAdmin1() throws Exception {
+    public void testCaseAdmin1() throws Exception {
         driver.get("http://159.65.29.212//login");
         driver.findElement(By.linkText("Login")).click();
         driver.findElement(By.linkText("Login")).click();
