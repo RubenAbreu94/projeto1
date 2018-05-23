@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 import static org.junit.Assert.fail;
 
-public class testCaseAdmin1 {
+public class testCaseAdmin1 extends junit.framework.TestCase {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
