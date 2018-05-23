@@ -1,19 +1,17 @@
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
-
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.fail;
-
-public class TestCaseAdmin15 {
+public class TestCaseAdmin15 extends junit.framework.TestCase{
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -56,12 +54,12 @@ public class TestCaseAdmin15 {
         driver.findElement(By.id("new_category_btn")).click();
         new Select(driver.findElement(By.cssSelector("#new_category > #chatter_form_editor > div.row > div.col-md-4 > #chatter_category_id"))).selectByVisibleText("Automatizados");
         driver.findElement(By.name("name")).clear();
-        driver.findElement(By.name("name")).sendKeys("TesteAuto15");
+        driver.findElement(By.name("name")).sendKeys("TesteAuto05");
         Thread.sleep(2000);
         driver.findElement(By.id("submit_category")).click();
 
 
-        driver.findElement(By.linkText("TesteAuto15")).click();
+        driver.findElement(By.linkText("TesteAuto05")).click();
         driver.findElement(By.id("delete-button")).click();
         Thread.sleep(2000);
         driver.findElement(By.cssSelector("button.btn.btn-danger")).click();
@@ -69,7 +67,7 @@ public class TestCaseAdmin15 {
 
 
         try {
-            assertFalse("Ao tentar apagar uma sub-categoria esta não foi eliminada com sucesso",driver.findElement(By.cssSelector("BODY")).getText().contains("TesteAuto15"));
+            assertFalse("Ao tentar apagar uma sub-categoria esta não foi eliminada com sucesso",driver.findElement(By.cssSelector("BODY")).getText().contains("TesteAuto05"));
             //assertFalse("Ao tentar apagar uma sub-categoria esta não foi eliminada com sucesso",driver.findElement(By.xpath("BODY")).getText().contains("TesteAuto05"));
         } catch (Error e) {
             verificationErrors.append(e.toString());

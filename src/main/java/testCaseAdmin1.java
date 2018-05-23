@@ -3,14 +3,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import junit.framework.TestCase;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static org.junit.Assert.fail;
 
-public class testCaseAdmin1 {
+public class testCaseAdmin1 extends TestCase {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
@@ -34,7 +34,7 @@ public class testCaseAdmin1 {
     }
 
     @Test
-    public void testAdmin1() throws Exception {
+    public void testCaseAdmin1() throws Exception {
         driver.get("http://159.65.29.212//login");
         driver.findElement(By.linkText("Login")).click();
         driver.findElement(By.linkText("Login")).click();

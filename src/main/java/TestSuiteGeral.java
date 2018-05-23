@@ -3,10 +3,41 @@ import junit.framework.TestSuite;
 import org.junit.runner.JUnitCore;
 import ru.yandex.qatools.allure.junit.AllureRunListener;
 
-public class TestSuiteProfissionaisSaude {
-
+public class TestSuiteGeral {
     public static Test suite() {
         TestSuite suite = new TestSuite();
+
+        //logins
+        suite.addTestSuite(testCaseLogin0.class);
+        suite.addTestSuite(testCaseLogin1.class);
+        suite.addTestSuite(testCaseLogin2.class);
+        suite.addTestSuite(testCaseLogin4.class);
+        suite.addTestSuite(testCaseLogin5.class);
+        suite.addTestSuite(testCaseLogin5.class);
+        suite.addTestSuite(testCaseLogin5.class);
+        suite.addTestSuite(testCaseLogin5.class);
+        suite.addTestSuite(testCaseLogin5.class);
+        suite.addTestSuite(testCaseLogin5.class);
+        suite.addTestSuite(testCaseLogin5.class);
+        suite.addTestSuite(testCaseLogin5.class);
+        suite.addTestSuite(testCaseLogin5.class);
+        suite.addTestSuite(testCaseAdmin0.class);
+        suite.addTestSuite(testCaseOrtografia0.class);
+
+
+        //logouts
+        suite.addTestSuite(testCaseLogout0.class);
+        suite.addTestSuite(testCaseLogout2.class);
+        suite.addTestSuite(testCaseLogout3.class);
+
+        //remember passwords
+        suite.addTestSuite(testCaseRememberPassword1.class);
+        suite.addTestSuite(testCaseRememberPassword2.class);
+        suite.addTestSuite(testCaseRememberPassword3.class);
+        suite.addTestSuite(testCaseRememberPassword4.class);
+        suite.addTestSuite(testCaseRememberPassword5.class);
+        suite.addTestSuite(testCaseRememberPassword6.class);
+
 
         //profissional de saude
         suite.addTestSuite(TestCaseProfissionalSaude1.class);
