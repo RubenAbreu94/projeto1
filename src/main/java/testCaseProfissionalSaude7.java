@@ -4,11 +4,10 @@ import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import static org.junit.Assert.*;
 
 public class testCaseProfissionalSaude7 extends junit.framework.TestCase{
     private WebDriver driver;
@@ -42,32 +41,56 @@ public class testCaseProfissionalSaude7 extends junit.framework.TestCase{
         driver.findElement(By.id("password")).sendKeys("password_tp18_p");
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
         // Warning: verifyTextPresent may require manual changes
-        String USER_EMAIL=driver.findElement(By.cssSelector("table.table tr:last-child td:nth-child(2)")).getText();
-
-        driver.findElement(By.cssSelector("table.table tr:last-child #delete-button")).click();
-        Thread.sleep(3000);
-        driver.findElement(By.cssSelector("button[type=submit]")).click();
-        // Warning: verifyTextNotPresent may require manual changes
-        Thread.sleep(3000);
         try {
-
-            assertEquals(false,driver.findElement(By.cssSelector("table.table tr:last-child")).getText().matches(USER_EMAIL));
-
+            assertTrue("Devia aparecer a página Lista de adolescentes apos efetuar login com prof. saude",driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-        driver.findElement(By.linkText("Profissional de Saude")).click();
-        driver.findElement(By.linkText("Logout")).click();
+        // ERROR: Caught exception [ERROR: Unsupported command [selectWindow | null | ]]
+        driver.findElement(By.linkText("Criar Novo Adolescente")).click();
+        driver.findElement(By.id("inputName")).clear();
+        driver.findElement(By.id("inputName")).sendKeys("Rúben Emanuel Gonçalves Abreu");
+        driver.findElement(By.id("inputEmail")).clear();
+        driver.findElement(By.id("inputEmail")).sendKeys("TESTE14@mail.com");
+        driver.findElement(By.id("inputInstitution")).clear();
+        driver.findElement(By.id("inputInstitution")).sendKeys("ESSLei");
+        driver.findElement(By.xpath("//form[@id='form-add-teen']/div[5]/div/div[2]/label")).click();
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+
+        driver.findElement(By.linkText("Gestão de Adolescentes")).click();
+        WebElement table = driver.findElement(By.xpath("//table[@class='table']"));
+
+        List<WebElement> linhas = table.findElements(By.tagName("tr"));
+        WebElement linhaPretendida = null;
+        for (int i = 0; i<linhas.size();i++) {
+            if(linhas.get(i).getText().contains("TESTE14@mail.com")) {
+                linhaPretendida = linhas.get(i);
+                break;
+            }
+        }
+
+        linhaPretendida.findElement(By.cssSelector("tr:last-child #delete-button")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.cssSelector("button.btn.btn-danger")).click();
+        Thread.sleep(1000);
+
+        try {
+            assertFalse("A Funcionalidade apagar não está a funcionar corretamente!",driver.findElement(By.cssSelector("BODY")).getText().contains("TESTE14@mail.com"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
     }
 
     @After
     public void tearDown() throws Exception {
+
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
             fail(verificationErrorString);
         }
     }
+
 
     private boolean isElementPresent(By by) {
         try {
@@ -102,4 +125,3 @@ public class testCaseProfissionalSaude7 extends junit.framework.TestCase{
         }
     }
 }
-

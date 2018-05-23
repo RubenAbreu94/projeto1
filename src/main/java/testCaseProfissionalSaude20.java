@@ -4,12 +4,10 @@ import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 public class testCaseProfissionalSaude20 extends junit.framework.TestCase{
     private WebDriver driver;
@@ -72,14 +70,27 @@ public class testCaseProfissionalSaude20 extends junit.framework.TestCase{
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-
-        driver.findElement(By.id("delete-button")).click();
-        Thread.sleep(3000);
-        driver.findElement(By.cssSelector("button[type=submit]")).click();
     }
 
     @After
     public void tearDown() throws Exception {
+
+        driver.findElement(By.linkText("Gestão de Adolescentes")).click();
+        WebElement table = driver.findElement(By.xpath("//table[@class='table']"));
+
+        List<WebElement> linhas = table.findElements(By.tagName("tr"));
+        WebElement linhaPretendida = null;
+        for (int i = 0; i<linhas.size();i++) {
+            if(linhas.get(i).getText().contains("TESTE14@mail.com")) {
+                linhaPretendida = linhas.get(i);
+                break;
+            }
+        }
+
+        linhaPretendida.findElement(By.cssSelector("tr:last-child #delete-button")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.cssSelector("button.btn.btn-danger")).click();
+
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {

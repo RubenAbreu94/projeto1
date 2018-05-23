@@ -4,12 +4,10 @@ import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 public class testCaseProfissionalSaude11 extends junit.framework.TestCase{
     private WebDriver driver;
@@ -56,25 +54,35 @@ public class testCaseProfissionalSaude11 extends junit.framework.TestCase{
         driver.findElement(By.id("inputEmail")).sendKeys("TESTE14@mail.com");
         driver.findElement(By.id("inputInstitution")).clear();
         driver.findElement(By.id("inputInstitution")).sendKeys("ESSLei");
-        driver.findElement(By.xpath("//form[@id='form-add-teen']/div[5]/div/div[2]/label")).click();
-        driver.findElement(By.xpath("//button[@type='submit']")).click();
-        driver.findElement(By.cssSelector("table.table tr:last-child #delete-button")).click();
-        Thread.sleep(3000);
-        driver.findElement(By.cssSelector("button.btn.btn-default")).click();
-        Thread.sleep(3000);
+        //driver.findElement(By.xpath("//form[@id='form-add-teen']/div[5]/div/div[2]/label")).click();
+        //driver.findElement(By.xpath("//button[@type='submit']")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
             assertTrue("Dado que iniciei conta com prof. de saude e estou na página da Lista de Adolescentes, botão 'Eliminar' quando clico em cancelar volta para a página da Lista de Adolescentes",driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-        driver.findElement(By.id("delete-button")).click();
-        Thread.sleep(3000);
-        driver.findElement(By.cssSelector("button[type=submit]")).click();
     }
 
     @After
     public void tearDown() throws Exception {
+
+        driver.findElement(By.linkText("Gestão de Adolescentes")).click();
+        WebElement table = driver.findElement(By.xpath("//table[@class='table']"));
+
+        List<WebElement> linhas = table.findElements(By.tagName("tr"));
+        WebElement linhaPretendida = null;
+        for (int i = 0; i<linhas.size();i++) {
+            if(linhas.get(i).getText().contains("TESTE14@mail.com")) {
+                linhaPretendida = linhas.get(i);
+                break;
+            }
+        }
+
+        linhaPretendida.findElement(By.cssSelector("tr:last-child #delete-button")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.cssSelector("button.btn.btn-danger")).click();
+
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {

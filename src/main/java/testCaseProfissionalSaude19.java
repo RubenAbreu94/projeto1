@@ -1,14 +1,13 @@
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class testCaseProfissionalSaude19 extends junit.framework.TestCase{
     private WebDriver driver;
@@ -43,7 +42,37 @@ public class testCaseProfissionalSaude19 extends junit.framework.TestCase{
         driver.findElement(By.id("password")).clear();
         driver.findElement(By.id("password")).sendKeys("password_tp18_p");
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
-        driver.findElement(By.xpath("(//button[@type='button'])[9]")).click();
+
+
+
+        driver.findElement(By.linkText("Criar Novo Adolescente")).click();
+        driver.findElement(By.id("inputName")).clear();
+        driver.findElement(By.id("inputName")).sendKeys("Rúben Emanuel Gonçalves Abreu");
+        driver.findElement(By.id("inputEmail")).clear();
+        driver.findElement(By.id("inputEmail")).sendKeys("TESTE14@mail.com");
+        driver.findElement(By.id("inputInstitution")).clear();
+        driver.findElement(By.id("inputInstitution")).sendKeys("ESSLei");
+        driver.findElement(By.xpath("//form[@id='form-add-teen']/div[5]/div/div[2]/label")).click();
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+       // driver.findElement(By.xpath("(//button[@type='button'])[9]")).click();
+       // driver.findElement(By.cssSelector("button.btn.btn-secundary")).click();
+
+
+        driver.findElement(By.linkText("Gestão de Adolescentes")).click();
+        WebElement table = driver.findElement(By.xpath("//table[@class='table']"));
+
+        List<WebElement> linhas = table.findElements(By.tagName("tr"));
+        WebElement linhaPretendida = null;
+        for (int i = 0; i<linhas.size();i++) {
+            if(linhas.get(i).getText().contains("TESTE14@mail.com")) {
+                linhaPretendida = linhas.get(i);
+                break;
+            }
+        }
+
+        linhaPretendida.findElement(By.cssSelector("button.btn.btn-primary")).click();
+        Thread.sleep(1000);
+
         driver.findElement(By.id("inputInstitution")).clear();
         driver.findElement(By.id("inputInstitution")).sendKeys("ESTG");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
@@ -57,6 +86,23 @@ public class testCaseProfissionalSaude19 extends junit.framework.TestCase{
 
     @After
     public void tearDown() throws Exception {
+
+        driver.findElement(By.linkText("Gestão de Adolescentes")).click();
+        WebElement table = driver.findElement(By.xpath("//table[@class='table']"));
+
+        List<WebElement> linhas = table.findElements(By.tagName("tr"));
+        WebElement linhaPretendida = null;
+        for (int i = 0; i<linhas.size();i++) {
+            if(linhas.get(i).getText().contains("TESTE14@mail.com")) {
+                linhaPretendida = linhas.get(i);
+                break;
+            }
+        }
+
+        linhaPretendida.findElement(By.cssSelector("tr:last-child #delete-button")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.cssSelector("button.btn.btn-danger")).click();
+
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {

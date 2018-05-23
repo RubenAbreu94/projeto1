@@ -4,11 +4,10 @@ import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import static org.junit.Assert.*;
 
 public class testCaseProfissionalSaude12 extends junit.framework.TestCase{
     private WebDriver driver;
@@ -58,23 +57,51 @@ public class testCaseProfissionalSaude12 extends junit.framework.TestCase{
         driver.findElement(By.xpath("//form[@id='form-add-teen']/div[5]/div/div[2]/label")).click();
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         // Warning: verifyTextPresent may require manual changes
-        String USER_EMAIL=driver.findElement(By.cssSelector("table.table tr:last-child td:nth-child(2)")).getText();
 
-        driver.findElement(By.id("delete-button")).click();
-        Thread.sleep(3000);
+        driver.findElement(By.linkText("Gestão de Adolescentes")).click();
+        WebElement table = driver.findElement(By.xpath("//table[@class='table']"));
+
+        List<WebElement> linhas = table.findElements(By.tagName("tr"));
+        WebElement linhaPretendida = null;
+        for (int i = 0; i<linhas.size();i++) {
+            if(linhas.get(i).getText().contains("TESTE14@mail.com")) {
+                linhaPretendida = linhas.get(i);
+                break;
+            }
+        }
+
+        linhaPretendida.findElement(By.cssSelector("tr:last-child #delete-button")).click();
+        Thread.sleep(1000);
+
+
+
+
         try {
-            assertTrue("Dado que iniciei conta com prof. de saude e estou na página da Lista de Adolescentes quando clico no botão 'Eliminar' verifico que aparece a mensagem de confirmação com o nome do Utilizador",driver.findElement(By.cssSelector("div.modal-body")).getText().contains("Tem a certeza que pretende eliminar o utilizador Rúben Emanuel Gonçalves Abreu?"));
+            assertTrue("Dado que iniciei conta com prof. de saude e estou na página da Lista de Adolescentes quando clico no botão 'Eliminar' de um utilizador deveria aparecer a seguinte mensagem: Tem a certeza que pretende eliminar o utilizador 'NOME DO UTILIZADOR'?",driver.findElement(By.cssSelector("BODY")).getText().contains("Tem a certeza que pretende eliminar o utilizador Rúben Emanuel Gonçalves Abreu?"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-
-        driver.findElement(By.id("delete-button")).click();
-        Thread.sleep(3000);
-        driver.findElement(By.cssSelector("button[type=submit]")).click();
     }
 
     @After
     public void tearDown() throws Exception {
+
+        driver.findElement(By.linkText("Gestão de Adolescentes")).click();
+        WebElement table = driver.findElement(By.xpath("//table[@class='table']"));
+
+        List<WebElement> linhas = table.findElements(By.tagName("tr"));
+        WebElement linhaPretendida = null;
+        for (int i = 0; i<linhas.size();i++) {
+            if(linhas.get(i).getText().contains("TESTE14@mail.com")) {
+                linhaPretendida = linhas.get(i);
+                break;
+            }
+        }
+
+        linhaPretendida.findElement(By.cssSelector("tr:last-child #delete-button")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.cssSelector("button.btn.btn-danger")).click();
+
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
