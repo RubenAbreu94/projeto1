@@ -9,8 +9,9 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
+import junit.framework.TestCase;
 
-public class TestCaseAdmin14 extends junit.framework.TestCase{
+public class TestCaseAdmin14 extends TestCase{
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;

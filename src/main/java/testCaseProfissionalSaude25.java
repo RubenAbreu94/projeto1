@@ -82,11 +82,6 @@ public class testCaseProfissionalSaude25 extends junit.framework.TestCase{
 
         Thread.sleep(1000);
 
-
-
-        ;
-
-
         driver.findElement(By.id("inputEmail")).clear();
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         try {
@@ -94,25 +89,25 @@ public class testCaseProfissionalSaude25 extends junit.framework.TestCase{
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
-
+        /*
         driver.findElement(By.id("inputEmail")).sendKeys("testeProf25@mail.com");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
+        */
+
+    }
 
 
+    @After
+    public void tearDown() throws Exception {
 
         driver.findElement(By.linkText("Gestão de Adolescentes")).click();
-
         Thread.sleep(1000);
-
-
-
-
         WebElement table2 = driver.findElement(By.xpath("//table[@class='table']"));
 
         List<WebElement> linhas2 = table2.findElements(By.tagName("tr"));
         WebElement linhaPretendida2 = null;
         for (int i = 0; i<linhas2.size();i++) {
-            if(linhas2.get(i).getText().contains("testeProf25@mail.com")) {
+            if(linhas2.get(i).getText().contains("testeProf16@mail.com")) {
                 linhaPretendida2 = linhas2.get(i);
                 break;
             }
@@ -121,14 +116,6 @@ public class testCaseProfissionalSaude25 extends junit.framework.TestCase{
         linhaPretendida2.findElement(By.cssSelector("tr:last-child #delete-button")).click();
         Thread.sleep(1000);
         driver.findElement(By.cssSelector("button.btn.btn-danger")).click();
-
-
-
-    }
-
-
-    @After
-    public void tearDown() throws Exception {
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {

@@ -3,14 +3,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import junit.framework.TestCase;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static org.junit.Assert.fail;
 
-public class testCaseAdmin1 extends junit.framework.TestCase {
+public class testCaseAdmin1 extends TestCase {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;

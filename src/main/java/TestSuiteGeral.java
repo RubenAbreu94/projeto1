@@ -22,8 +22,13 @@ public class TestSuiteGeral {
         suite.addTestSuite(testCaseLogin5.class);
         suite.addTestSuite(testCaseLogin5.class);
         suite.addTestSuite(testCaseAdmin0.class);
-        suite.addTestSuite(testCaseLogout0.class);
         suite.addTestSuite(testCaseOrtografia0.class);
+
+
+        //logouts
+        suite.addTestSuite(testCaseLogout0.class);
+        suite.addTestSuite(testCaseLogout2.class);
+        suite.addTestSuite(testCaseLogout3.class);
 
         //remember passwords
         suite.addTestSuite(testCaseRememberPassword1.class);
