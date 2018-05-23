@@ -5,14 +5,11 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static org.junit.Assert.*;
-
-public class testSuiteAdmin extends junit.framework.TestCase {
+public class TestSuiteAdmin extends junit.framework.TestCase {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
