@@ -73,8 +73,11 @@ public class testCaseProfissionalSaude5 extends junit.framework.TestCase{
         driver.findElement(By.id("password")).sendKeys("password_tp18_p");
 
         driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
-        driver.findElement(By.linkText("Gestão de Adolescentes")).click();
-        driver.findElement(By.xpath("(//button[@type='button'])[5]")).click();
+
+        //driver.findElement(By.linkText("Gestão de Adolescentes")).click();
+        //driver.findElement(By.xpath("(//button[@type='button'])[5]")).click();
+
+        driver.findElement(By.linkText("Exportar Adolescentes")).click();
 
 
 
