@@ -58,6 +58,7 @@ public class testCaseAdmin2 extends junit.framework.TestCase{
         driver.findElement(By.cssSelector("#tinymce")).sendKeys("Olá");
         Thread.sleep(3000);
         driver.switchTo().defaultContent();
+        Thread.sleep(3000);
         driver.findElement(By.id("btn-send")).click();
        Thread.sleep(3000);
         //Warning: verifyTextPresent may require manual changes
