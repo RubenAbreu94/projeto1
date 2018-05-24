@@ -78,9 +78,13 @@ public class testCaseProfissionalSaude12 extends junit.framework.TestCase{
 
         try {
             assertTrue("Dado que iniciei conta com prof. de saude e estou na página da Lista de Adolescentes quando clico no botão 'Eliminar' de um utilizador deveria aparecer a seguinte mensagem: Tem a certeza que pretende eliminar o utilizador 'NOME DO UTILIZADOR'?",driver.findElement(By.cssSelector("BODY")).getText().contains("Tem a certeza que pretende eliminar o utilizador Rúben Emanuel Gonçalves Abreu?"));
-        } catch (Error e) {
+        }
+        catch (Error e) {
             verificationErrors.append(e.toString());
         }
+
+        driver.findElement(By.cssSelector("button.btn.btn-default")).click();
+        Thread.sleep(1000);
     }
 
     @After

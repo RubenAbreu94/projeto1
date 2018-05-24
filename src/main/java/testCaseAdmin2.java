@@ -8,9 +8,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 public class testCaseAdmin2 extends junit.framework.TestCase{
     private WebDriver driver;
     private String baseUrl;
@@ -56,8 +53,8 @@ public class testCaseAdmin2 extends junit.framework.TestCase{
         driver.switchTo().frame(driver.findElement(By.id("message-editor_ifr")));
         //driver.findElement(By.cssSelector("tinymce.mce-content-body p")).click();
         driver.findElement(By.cssSelector("#tinymce")).sendKeys("Olá");
-        Thread.sleep(3000);
         driver.switchTo().defaultContent();
+        Thread.sleep(3000);
         driver.findElement(By.id("btn-send")).click();
        Thread.sleep(3000);
         //Warning: verifyTextPresent may require manual changes
