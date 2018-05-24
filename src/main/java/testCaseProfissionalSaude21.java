@@ -69,6 +69,8 @@ public class testCaseProfissionalSaude21 extends junit.framework.TestCase{
         driver.findElement(By.xpath("(//button[@type='button'])[9]")).click();
         driver.findElement(By.id("inputName")).clear();
         driver.findElement(By.id("inputName")).sendKeys("Rúben Emanuel Gonçalves Radamanto");
+        driver.findElement(By.id("inputEmail")).clear();
+        driver.findElement(By.id("inputEmail")).sendKeys("TESTE14@mail.com");
         driver.findElement(By.id("inputInstitution")).clear();
         driver.findElement(By.id("inputInstitution")).sendKeys("ESTG");
         driver.findElement(By.xpath("//button[@type='submit']")).click();

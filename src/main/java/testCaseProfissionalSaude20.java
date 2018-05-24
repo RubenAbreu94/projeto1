@@ -56,8 +56,11 @@ public class testCaseProfissionalSaude20 extends junit.framework.TestCase{
         driver.findElement(By.id("inputInstitution")).sendKeys("ESSLei");
         driver.findElement(By.xpath("//form[@id='form-add-teen']/div[5]/div/div[2]/label")).click();
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-        driver.findElement(By.xpath("(//button[@type='button'])[9]")).click();
-        driver.findElement(By.cssSelector("button.btn.btn-secundary")).click();
+
+        driver.findElement(By.linkText("Gestão de Adolescentes")).click();
+
+
+        //driver.findElement(By.cssSelector("button.btn.btn-secundary")).click();
         // Warning: verifyTextPresent may require manual changes
         try {
             assertTrue(driver.findElement(By.cssSelector("BODY")).getText().contains("Rúben Emanuel Gonçalves Abreu"));

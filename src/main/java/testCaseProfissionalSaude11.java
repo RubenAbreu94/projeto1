@@ -54,9 +54,10 @@ public class testCaseProfissionalSaude11 extends junit.framework.TestCase{
         driver.findElement(By.id("inputEmail")).sendKeys("TESTE14@mail.com");
         driver.findElement(By.id("inputInstitution")).clear();
         driver.findElement(By.id("inputInstitution")).sendKeys("ESSLei");
-        //driver.findElement(By.xpath("//form[@id='form-add-teen']/div[5]/div/div[2]/label")).click();
-        //driver.findElement(By.xpath("//button[@type='submit']")).click();
-        // Warning: verifyTextPresent may require manual changes
+        driver.findElement(By.xpath("//form[@id='form-add-teen']/div[5]/div/div")).click();
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        driver.findElement(By.linkText("Gestão de Adolescentes")).click();
+
         try {
             assertTrue("Dado que iniciei conta com prof. de saude e estou na página da Lista de Adolescentes, botão 'Eliminar' quando clico em cancelar volta para a página da Lista de Adolescentes",driver.findElement(By.cssSelector("BODY")).getText().contains("Lista de Adolescentes"));
         } catch (Error e) {
