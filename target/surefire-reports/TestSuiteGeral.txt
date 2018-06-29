@@ -1,0 +1,60 @@
+-------------------------------------------------------------------------------
+Test set: TestSuiteGeral
+-------------------------------------------------------------------------------
+Tests run: 66, Failures: 13, Errors: 1, Skipped: 0, Time elapsed: 587.281 s <<< FAILURE! - in TestSuiteGeral
+testTestCaseLogin5(testCaseLogin5)  Time elapsed: 5.451 s  <<< FAILURE!
+junit.framework.AssertionFailedError: junit.framework.ComparisonFailure: expected:<[Não existem registos com as credenciais fornecida]s.> but was:<[Demasiadas Tentativas de Inicio de Sessão. Por favor tente novamente em 31 segundo]s.>
+	at testCaseLogin5.tearDown(testCaseLogin5.java:56)
+
+testTestCaseLogin5(testCaseLogin5)  Time elapsed: 5.493 s  <<< FAILURE!
+junit.framework.AssertionFailedError: junit.framework.ComparisonFailure: expected:<[Não existem registos com as credenciais fornecida]s.> but was:<[Demasiadas Tentativas de Inicio de Sessão. Por favor tente novamente em 26 segundo]s.>
+	at testCaseLogin5.tearDown(testCaseLogin5.java:56)
+
+testTestCaseLogin5(testCaseLogin5)  Time elapsed: 5.436 s  <<< FAILURE!
+junit.framework.AssertionFailedError: junit.framework.ComparisonFailure: expected:<[Não existem registos com as credenciais fornecida]s.> but was:<[Demasiadas Tentativas de Inicio de Sessão. Por favor tente novamente em 20 segundo]s.>
+	at testCaseLogin5.tearDown(testCaseLogin5.java:56)
+
+testTestCaseLogin5(testCaseLogin5)  Time elapsed: 5.466 s  <<< FAILURE!
+junit.framework.AssertionFailedError: junit.framework.ComparisonFailure: expected:<[Não existem registos com as credenciais fornecida]s.> but was:<[Demasiadas Tentativas de Inicio de Sessão. Por favor tente novamente em 15 segundo]s.>
+	at testCaseLogin5.tearDown(testCaseLogin5.java:56)
+
+testT(testCaseOrtografia0)  Time elapsed: 3.785 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<Bem Vindo à []TeenPower!> but was:<Bem Vindo à [ao ]TeenPower!>
+	at testCaseOrtografia0.testT(testCaseOrtografia0.java:39)
+
+testTestCaseRememberPassword2(testCaseRememberPassword2)  Time elapsed: 5.086 s  <<< FAILURE!
+junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Se estou a tentar recuperar conta e não preencho o campo email , devo receber uma mensagem a dizer que esse campo é obrigatorio.Este campo deve ser apresentado em Português
+	at testCaseRememberPassword2.tearDown(testCaseRememberPassword2.java:53)
+
+testTestCaseProfissionalSaude3(testCaseProfissionalSaude3)  Time elapsed: 5.983 s  <<< FAILURE!
+junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Dado que iniciei conta como prof. de sáude e estou na Área de Gestão de Adolescentes quando clico no botão 'Importar Adolescentes' então é suposto estar na página Importação de Utilizadores
+	at testCaseProfissionalSaude3.tearDown(testCaseProfissionalSaude3.java:65)
+
+testTestCaseProfissionalSaude12(testCaseProfissionalSaude12)  Time elapsed: 11.569 s  <<< FAILURE!
+junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Dado que iniciei conta com prof. de saude e estou na página da Lista de Adolescentes quando clico no botão 'Eliminar' de um utilizador deveria aparecer a seguinte mensagem: Tem a certeza que pretende eliminar o utilizador 'NOME DO UTILIZADOR'?
+	at testCaseProfissionalSaude12.tearDown(testCaseProfissionalSaude12.java:112)
+
+testTestCaseProfissionalSaude15(testCaseProfissionalSaude15)  Time elapsed: 6.418 s  <<< FAILURE!
+junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Deveria existir um botão 'Voltar atrás'
+	at testCaseProfissionalSaude15.tearDown(testCaseProfissionalSaude15.java:59)
+
+testTestCaseProfissionalSaude19(testCaseProfissionalSaude19)  Time elapsed: 12.014 s  <<< FAILURE!
+junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Após efetuar uma edição de perfil e submete-la com sucesso deveria ser apresentada uma mensagem de sucesso
+	at testCaseProfissionalSaude19.tearDown(testCaseProfissionalSaude19.java:109)
+
+testTestCaseProfissionalSaude22(testCaseProfissionalSaude22)  Time elapsed: 9.482 s  <<< ERROR!
+java.lang.NullPointerException
+	at testCaseProfissionalSaude22.testTestCaseProfissionalSaude22(testCaseProfissionalSaude22.java:91)
+
+testTestCaseAdmin3(testCaseAdmin3)  Time elapsed: 8.816 s  <<< FAILURE!
+junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Dado que iniciei conta como Administrador quando clico no botão 'Criar Novo Utilizador' e crio um utilizador então é suposto receber uma mensagem em como o utilizador foi criado com sucesso.)
+	at testCaseAdmin3.tearDown(testCaseAdmin3.java:95)
+
+testAdmin12(testCaseAdmin12)  Time elapsed: 16.343 s  <<< FAILURE!
+junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Dado que a categoria foi apagada então as dicussões nela presentes também deveriam ser apagadas
+	at testCaseAdmin12.tearDown(testCaseAdmin12.java:105)
+
+testCaseAdmin15(TestCaseAdmin15)  Time elapsed: 16.248 s  <<< FAILURE!
+junit.framework.AssertionFailedError: junit.framework.AssertionFailedError: Ao tentar apagar uma sub-categoria esta não foi eliminada com sucesso
+	at TestCaseAdmin15.tearDown(TestCaseAdmin15.java:89)
+
