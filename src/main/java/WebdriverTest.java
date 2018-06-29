@@ -39,7 +39,7 @@ public class WebdriverTest {
         //element.submit();
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.titleContains("Leiria - Wikipedia"));
+        //wait.until(ExpectedConditions.titleContains("Leiria - Wikipedia"));
         driver.quit();
     }
 }

@@ -1,0 +1,28 @@
+<component name="libraryTable">
+  <library name="org.codehaus.mojo:surefire-report-maven-plugin:2.0-beta-1" type="repository">
+    <properties maven-id="org.codehaus.mojo:surefire-report-maven-plugin:2.0-beta-1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/mojo/surefire-report-maven-plugin/2.0-beta-1/surefire-report-maven-plugin-2.0-beta-1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/wagon/wagon-provider-api/1.0-alpha-4/wagon-provider-api-1.0-alpha-4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/plexus/plexus-utils/1.0.3/plexus-utils-1.0.3.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/maven-artifact-manager/2.0-beta-1/maven-artifact-manager-2.0-beta-1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/maven-model/2.0-beta-1/maven-model-2.0-beta-1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/oro/oro/2.0.7/oro-2.0.7.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/doxia/doxia-core/1.0-alpha-4/doxia-core-1.0-alpha-4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/maven-repository-metadata/2.0-beta-1/maven-repository-metadata-2.0-beta-1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/plexus/plexus-container-default/1.0-alpha-6/plexus-container-default-1.0-alpha-6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/junit/junit/3.8.1/junit-3.8.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/maven-profile/2.0-beta-1/maven-profile-2.0-beta-1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/maven-plugin-api/2.0-beta-1/maven-plugin-api-2.0-beta-1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/commons-validator/commons-validator/1.1.4/commons-validator-1.1.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/maven-project/2.0-beta-1/maven-project-2.0-beta-1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/reporting/maven-reporting-impl/2.0-beta-1/maven-reporting-impl-2.0-beta-1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/maven-artifact/2.0-beta-1/maven-artifact-2.0-beta-1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/reporting/maven-reporting-api/2.0-beta-1/maven-reporting-api-2.0-beta-1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/doxia/doxia-sink-api/1.0-alpha-4/doxia-sink-api-1.0-alpha-4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
